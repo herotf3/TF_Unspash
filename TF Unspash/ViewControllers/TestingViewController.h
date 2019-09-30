@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  TestingViewController.h
 //  TF Unspash
 //
 //  Created by CPU11808 on 9/30/19.
@@ -8,8 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
+@interface TestingViewController : UIViewController
 
 
+@property(nonatomic, strong) NSArray *photos;
 @end
 

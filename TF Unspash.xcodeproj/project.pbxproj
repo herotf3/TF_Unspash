@@ -7,28 +7,50 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1B3EE0D4255702B4580134D2 /* ListPhotosViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B3EE105F9693A3547BF3F18 /* ListPhotosViewController.m */; };
+		1B3EE62B34A0811D6FFF3DD7 /* USPhoto.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B3EEDF3AFF11A76ADB7E064 /* USPhoto.m */; };
+		1B3EE6D6380F5541FF28B75B /* UnsplashAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B3EE42EEC576B0B19121BA0 /* UnsplashAPI.m */; };
+		1B3EE9D784D62715C8C8B7C9 /* AppConfigs.h in Resources */ = {isa = PBXBuildFile; fileRef = 1B3EEF1B2D91B73308A24A41 /* AppConfigs.h */; };
+		1B3EEBB0838C1E61B534A495 /* NetworkingManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B3EEFCF38ECBED3F17D61B0 /* NetworkingManager.m */; };
+		1B3EEFAE765BD58F321D414F /* UnsplashEndPoint.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B3EEA9E27C7ED41DD603507 /* UnsplashEndPoint.m */; };
 		DB12B72B2341AE69004CE43D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = DB12B72A2341AE69004CE43D /* AppDelegate.m */; };
 		DB12B72E2341AE69004CE43D /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = DB12B72D2341AE69004CE43D /* SceneDelegate.m */; };
-		DB12B7312341AE69004CE43D /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DB12B7302341AE69004CE43D /* ViewController.m */; };
+		DB12B7312341AE69004CE43D /* TestingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DB12B7302341AE69004CE43D /* TestingViewController.m */; };
 		DB12B7342341AE69004CE43D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB12B7322341AE69004CE43D /* Main.storyboard */; };
 		DB12B7362341AE6B004CE43D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DB12B7352341AE6B004CE43D /* Assets.xcassets */; };
 		DB12B7392341AE6B004CE43D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB12B7372341AE6B004CE43D /* LaunchScreen.storyboard */; };
 		DB12B73C2341AE6B004CE43D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = DB12B73B2341AE6B004CE43D /* main.m */; };
+		DB12B749234214E6004CE43D /* PhotoCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DB12B747234214E6004CE43D /* PhotoCollectionViewCell.m */; };
+		DB12B74A234214E6004CE43D /* PhotoCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DB12B748234214E6004CE43D /* PhotoCollectionViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1B3EE09F4F8371FCB846314F /* UnsplashEndPoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UnsplashEndPoint.h; sourceTree = "<group>"; };
+		1B3EE105F9693A3547BF3F18 /* ListPhotosViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListPhotosViewController.m; sourceTree = "<group>"; };
+		1B3EE393C72ACF5A4D1CF3FF /* UnsplashAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UnsplashAPI.h; sourceTree = "<group>"; };
+		1B3EE3B723C922D15C039A36 /* NetworkingManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkingManager.h; sourceTree = "<group>"; };
+		1B3EE42EEC576B0B19121BA0 /* UnsplashAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UnsplashAPI.m; sourceTree = "<group>"; };
+		1B3EEA9E27C7ED41DD603507 /* UnsplashEndPoint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UnsplashEndPoint.m; sourceTree = "<group>"; };
+		1B3EEC91E1C54F3806702B10 /* ListPhotosViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListPhotosViewController.h; sourceTree = "<group>"; };
+		1B3EEDF3AFF11A76ADB7E064 /* USPhoto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = USPhoto.m; sourceTree = "<group>"; };
+		1B3EEF1B2D91B73308A24A41 /* AppConfigs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppConfigs.h; sourceTree = "<group>"; };
+		1B3EEF33B244C0CEF83B71D4 /* USPhoto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = USPhoto.h; sourceTree = "<group>"; };
+		1B3EEFCF38ECBED3F17D61B0 /* NetworkingManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetworkingManager.m; sourceTree = "<group>"; };
 		DB12B7262341AE69004CE43D /* TF Unspash.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "TF Unspash.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB12B7292341AE69004CE43D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		DB12B72A2341AE69004CE43D /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		DB12B72C2341AE69004CE43D /* SceneDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SceneDelegate.h; sourceTree = "<group>"; };
 		DB12B72D2341AE69004CE43D /* SceneDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SceneDelegate.m; sourceTree = "<group>"; };
-		DB12B72F2341AE69004CE43D /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		DB12B7302341AE69004CE43D /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		DB12B72F2341AE69004CE43D /* TestingViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestingViewController.h; sourceTree = "<group>"; };
+		DB12B7302341AE69004CE43D /* TestingViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestingViewController.m; sourceTree = "<group>"; };
 		DB12B7332341AE69004CE43D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		DB12B7352341AE6B004CE43D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DB12B7382341AE6B004CE43D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DB12B73A2341AE6B004CE43D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DB12B73B2341AE6B004CE43D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		DB12B746234214E6004CE43D /* PhotoCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PhotoCollectionViewCell.h; sourceTree = "<group>"; };
+		DB12B747234214E6004CE43D /* PhotoCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PhotoCollectionViewCell.m; sourceTree = "<group>"; };
+		DB12B748234214E6004CE43D /* PhotoCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PhotoCollectionViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -42,6 +64,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1B3EE11B65CCA2453A1C5769 /* Configurations */ = {
+			isa = PBXGroup;
+			children = (
+				1B3EEF1B2D91B73308A24A41 /* AppConfigs.h */,
+			);
+			path = Configurations;
+			sourceTree = "<group>";
+		};
+		1B3EEAF9A6860127420E86A4 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				1B3EEDF3AFF11A76ADB7E064 /* USPhoto.m */,
+				1B3EEF33B244C0CEF83B71D4 /* USPhoto.h */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		DB12B71D2341AE69004CE43D = {
 			isa = PBXGroup;
 			children = (
@@ -61,19 +100,64 @@
 		DB12B7282341AE69004CE43D /* TF Unspash */ = {
 			isa = PBXGroup;
 			children = (
-				DB12B7292341AE69004CE43D /* AppDelegate.h */,
-				DB12B72A2341AE69004CE43D /* AppDelegate.m */,
-				DB12B72C2341AE69004CE43D /* SceneDelegate.h */,
-				DB12B72D2341AE69004CE43D /* SceneDelegate.m */,
-				DB12B72F2341AE69004CE43D /* ViewController.h */,
-				DB12B7302341AE69004CE43D /* ViewController.m */,
+				DB12B74523421479004CE43D /* Views */,
+				DB12B74423421296004CE43D /* AppDelegate */,
+				DB12B74323421283004CE43D /* ViewControllers */,
+				DB12B7422341AEB9004CE43D /* Networking */,
 				DB12B7322341AE69004CE43D /* Main.storyboard */,
 				DB12B7352341AE6B004CE43D /* Assets.xcassets */,
 				DB12B7372341AE6B004CE43D /* LaunchScreen.storyboard */,
 				DB12B73A2341AE6B004CE43D /* Info.plist */,
-				DB12B73B2341AE6B004CE43D /* main.m */,
+				1B3EE11B65CCA2453A1C5769 /* Configurations */,
+				1B3EEAF9A6860127420E86A4 /* Models */,
 			);
 			path = "TF Unspash";
+			sourceTree = "<group>";
+		};
+		DB12B7422341AEB9004CE43D /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				1B3EEFCF38ECBED3F17D61B0 /* NetworkingManager.m */,
+				1B3EE3B723C922D15C039A36 /* NetworkingManager.h */,
+				1B3EEA9E27C7ED41DD603507 /* UnsplashEndPoint.m */,
+				1B3EE09F4F8371FCB846314F /* UnsplashEndPoint.h */,
+				1B3EE42EEC576B0B19121BA0 /* UnsplashAPI.m */,
+				1B3EE393C72ACF5A4D1CF3FF /* UnsplashAPI.h */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		DB12B74323421283004CE43D /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				DB12B72F2341AE69004CE43D /* TestingViewController.h */,
+				DB12B7302341AE69004CE43D /* TestingViewController.m */,
+				1B3EE105F9693A3547BF3F18 /* ListPhotosViewController.m */,
+				1B3EEC91E1C54F3806702B10 /* ListPhotosViewController.h */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		DB12B74423421296004CE43D /* AppDelegate */ = {
+			isa = PBXGroup;
+			children = (
+				DB12B7292341AE69004CE43D /* AppDelegate.h */,
+				DB12B72A2341AE69004CE43D /* AppDelegate.m */,
+				DB12B72C2341AE69004CE43D /* SceneDelegate.h */,
+				DB12B72D2341AE69004CE43D /* SceneDelegate.m */,
+				DB12B73B2341AE6B004CE43D /* main.m */,
+			);
+			path = AppDelegate;
+			sourceTree = "<group>";
+		};
+		DB12B74523421479004CE43D /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				DB12B746234214E6004CE43D /* PhotoCollectionViewCell.h */,
+				DB12B747234214E6004CE43D /* PhotoCollectionViewCell.m */,
+				DB12B748234214E6004CE43D /* PhotoCollectionViewCell.xib */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -134,8 +218,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				DB12B7392341AE6B004CE43D /* LaunchScreen.storyboard in Resources */,
+				DB12B74A234214E6004CE43D /* PhotoCollectionViewCell.xib in Resources */,
 				DB12B7362341AE6B004CE43D /* Assets.xcassets in Resources */,
 				DB12B7342341AE69004CE43D /* Main.storyboard in Resources */,
+				1B3EE9D784D62715C8C8B7C9 /* AppConfigs.h in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -146,10 +232,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DB12B7312341AE69004CE43D /* ViewController.m in Sources */,
+				DB12B7312341AE69004CE43D /* TestingViewController.m in Sources */,
 				DB12B72B2341AE69004CE43D /* AppDelegate.m in Sources */,
 				DB12B73C2341AE6B004CE43D /* main.m in Sources */,
+				DB12B749234214E6004CE43D /* PhotoCollectionViewCell.m in Sources */,
 				DB12B72E2341AE69004CE43D /* SceneDelegate.m in Sources */,
+				1B3EEBB0838C1E61B534A495 /* NetworkingManager.m in Sources */,
+				1B3EEFAE765BD58F321D414F /* UnsplashEndPoint.m in Sources */,
+				1B3EE6D6380F5541FF28B75B /* UnsplashAPI.m in Sources */,
+				1B3EE62B34A0811D6FFF3DD7 /* USPhoto.m in Sources */,
+				1B3EE0D4255702B4580134D2 /* ListPhotosViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
