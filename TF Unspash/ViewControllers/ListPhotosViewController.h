@@ -5,10 +5,9 @@
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
-#import "UIKit"
 
 
 @interface ListPhotosViewController : UIViewController
 
-@property(nonatomic) NSArray * photos;
+@property (nonatomic, strong) NSArray * photos;
 @end
