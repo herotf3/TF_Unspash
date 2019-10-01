@@ -6,18 +6,23 @@
 #import <SDWebImage/UIImageView+WebCache.h>
 #import "ListPhotosViewController.h"
 #import "PhotoCollectionViewCell.h"
-#import "USPhoto.h"
 #import "UnsplashAPI.h"
+#import "WaterFallLayout.h"
+#import "USPhotoVM.h"
+#import "SupportFunctions.h"
+#import "UIViewController+ProcessView.h"
 
 #define PHOTO_CELL_ID @"PhotoCollectionCellId"
 
-@interface ListPhotosViewController() <UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout>
+#define NUMBER_OF_PHOTO_COLUMNS 2
+
+@interface ListPhotosViewController() <UICollectionViewDataSource, UICollectionViewDelegate, WaterFallLayoutDelegate>
 @property (weak, nonatomic) IBOutlet UICollectionView * clvPhotos;
 
 @end
 
 @implementation ListPhotosViewController {
-
+    NSInteger numberOfColumn;
 }
 
 - (void)viewDidLoad {
@@ -28,12 +33,16 @@
 }
 
 - (void)loadListPhotos {
+    [self showLoading];
     [UnsplashAPI getListPhotosWithCompletionHandler:^(NSArray *photos, NSString *error) {
+        [self hideLoading];
         if (error){
             return;
         }
         if (photos){
-            self.photos = photos;
+            self.photos = map(photos, ^id(USPhoto * value) {
+                return [USPhotoVM presenterWithPhoto:value];
+            });
         }
     }];
 }
@@ -43,16 +52,21 @@
     dispatch_async(dispatch_get_main_queue(), ^{
         [self.clvPhotos reloadData];
     });
-    
 }
 
 - (void)setupCollectionView {
     [_clvPhotos registerNib:[UINib nibWithNibName:[PhotoCollectionViewCell description] bundle:nil] forCellWithReuseIdentifier:PHOTO_CELL_ID];
     _clvPhotos.delegate = self;
     _clvPhotos.dataSource = self;
+    numberOfColumn = 2;
+
+    if ([_clvPhotos.collectionViewLayout isKindOfClass:WaterFallLayout.class]){
+        ((WaterFallLayout *)_clvPhotos.collectionViewLayout).delegate = self;
+    }
 }
 
 #pragma mark  - Collection view data source
+
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
     return self.photos.count;
 }
@@ -60,33 +74,20 @@
 - (__kindof UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     PhotoCollectionViewCell * cell = [collectionView dequeueReusableCellWithReuseIdentifier:PHOTO_CELL_ID forIndexPath:indexPath];
 
-    USPhoto* photo = self.photos[indexPath.row];
-    [cell.imageView sd_setImageWithURL:[NSURL URLWithString:photo.urls.thumb] placeholderImage:nil completed:nil];
-    [cell setBackgroundColor:UIColor.blueColor];
+    USPhotoVM *photoPresenter = self.photos[indexPath.row];
+    [cell bindDataWith:photoPresenter];
     return cell;
 }
 
-#pragma mark - Collection view flow layout
+#pragma mark - Water fall layout delegate
 
-- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
-    CGSize result;
-    result = CGSizeMake(200, 200);
-    return result;
+- (CGSize)collectionView:(UICollectionView *)collectionView sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
+    return [self.photos[indexPath.row] photoSizeForColectionView];
 }
 
-- (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout insetForSectionAtIndex:(NSInteger)section {
-    UIEdgeInsets result;
-    result = UIEdgeInsetsZero;
-    return result;
-}
 
-- (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout minimumLineSpacingForSectionAtIndex:(NSInteger)section {
-    return 4;
+- (NSInteger)waterFallLayoutNumberOfColumns {
+    return NUMBER_OF_PHOTO_COLUMNS;
 }
-
-- (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout minimumInteritemSpacingForSectionAtIndex:(NSInteger)section {
-    return 4;
-}
-
 
 @end

@@ -7,12 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "USPhotoVM.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface PhotoCollectionViewCell : UICollectionViewCell
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
 
+- (void)bindDataWith:(USPhotoVM *)presenter;
 @end
 
 NS_ASSUME_NONNULL_END

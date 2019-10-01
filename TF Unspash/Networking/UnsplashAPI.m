@@ -6,6 +6,7 @@
 #import "UnsplashAPI.h"
 #import "UnsplashEndPoint.h"
 #import "USPhoto.h"
+#import "SupportFunctions.h"
 
 @implementation UnsplashAPI
 
@@ -39,18 +40,6 @@
         completion(photos,nil);
     }];
     [task resume];
-}
-
-static id map(id collection, id (^f)(id value)) {
-    id result = nil;
-    if ([collection isKindOfClass:NSArray.class]) {
-        result = [NSMutableArray arrayWithCapacity:[collection count]];
-        for (id x in collection) [result addObject:f(x)];
-    } else if ([collection isKindOfClass:NSDictionary.class]) {
-        result = [NSMutableDictionary dictionaryWithCapacity:[collection count]];
-        for (id key in collection) [result setObject:f([collection objectForKey:key]) forKey:key];
-    }
-    return result;
 }
 
 @end

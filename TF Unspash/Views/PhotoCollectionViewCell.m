@@ -6,6 +6,8 @@
 //  Copyright © 2019 CPU11808. All rights reserved.
 //
 
+#import <SDWebImage/SDAnimatedImageView+WebCache.h>
+#import <SDWebImage/UIImageView+WebCache.h>
 #import "PhotoCollectionViewCell.h"
 
 @implementation PhotoCollectionViewCell
@@ -14,5 +16,11 @@
     [super awakeFromNib];
     // Initialization code
 }
+
+- (void)bindDataWith:(USPhotoVM *)presenter {
+    [self.imageView sd_setImageWithURL:[presenter URLForDisplayInThumb] placeholderImage:nil];
+    [self setBackgroundColor:UIColor.lightGrayColor];
+}
+
 
 @end
