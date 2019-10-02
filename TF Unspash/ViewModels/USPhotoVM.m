@@ -4,6 +4,7 @@
 //
 
 #import <CoreGraphics/CoreGraphics.h>
+#import <UIKit/UIKit.h>
 #import "USPhotoVM.h"
 #import "USPhoto.h"
 
@@ -32,4 +33,50 @@
     return CGSizeMake(self.photo.width, self.photo.height);
 }
 
+- (NSURL *)URLForDisplayInLarge {
+    return [[NSURL alloc] initWithString:self.photo.urls.full];
+}
+
+
+- (UIImage *)placeHolderImage {
+    return nil;
+}
+
+- (NSString *)totalLike {
+    return @(self.photo.likes).stringValue;
+}
+
+
+- (NSString *)userName {
+    NSString * fullName = [NSString stringWithFormat:@"%@ %@", self.photo.user.firstName, self.photo.user.lastName];
+    return fullName;
+}
+
+- (NSURL *)userAvatar {
+    return [[NSURL alloc] initWithString:self.photo.user.profileImage.medium];
+}
+
+
+- (NSString *)instagramUsername {
+    return [NSString stringWithFormat:@"Instagram: %@",self.photo.user.instagramUsername];
+}
+
+- (NSString *)createDateText {
+    NSDateFormatter * dateFormatter = [NSDateFormatter new];
+    dateFormatter.dateFormat = @"yyyy-MM-dd'T'HH:mm:ssZZZZZ";
+    NSDate *date = [dateFormatter dateFromString:self.photo.createdAt];
+
+    NSDateFormatter *myFormat = [NSDateFormatter new];
+    myFormat.dateFormat = @"HH:mm MMM dd, yyyy";
+    return [myFormat stringFromDate:date];
+}
+
+
+- (NSString *)totalLikeOfUser {
+    return @(self.photo.user.totalLikes).stringValue;
+}
+
+- (NSString *)totalUserPhoto {
+    return @(self.photo.user.totalPhotos).stringValue;
+}
 @end

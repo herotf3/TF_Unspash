@@ -9,6 +9,7 @@
 #import "UnsplashAPI.h"
 #import "WaterFallLayout.h"
 #import "UIViewController+ProcessView.h"
+#import "PhotoDetailViewController.h"
 
 #define PHOTO_CELL_ID @"PhotoCollectionCellId"
 
@@ -54,6 +55,16 @@
     [cell bindDataWith:[self.listPhotoVM photoVMAtIndexPath: indexPath]];
     return cell;
 }
+
+#pragma mark - Collection view delegate
+
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+    PhotoDetailViewController * detailVC = [PhotoDetailViewController new];
+    detailVC.photoVM = [self.listPhotoVM photoVMAtIndexPath:indexPath];
+
+    [self.navigationController pushViewController:detailVC animated:YES];
+}
+
 
 #pragma mark - Water fall layout delegate
 

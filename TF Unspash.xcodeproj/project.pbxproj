@@ -15,9 +15,12 @@
 		1B3EEBB0838C1E61B534A495 /* NetworkingManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B3EEFCF38ECBED3F17D61B0 /* NetworkingManager.m */; };
 		1B3EECC620318664E8171DBB /* USPhotoVM.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B3EE44C2CC248D308FA5655 /* USPhotoVM.m */; };
 		1B3EECED01450395AF823680 /* UIViewController+ProcessView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B3EED8C6AAE1D92D78F36B9 /* UIViewController+ProcessView.m */; };
+		1B3EEED506C0784AAAEE0C70 /* CircleImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B3EE166A9C6B6F85A80F135 /* CircleImageView.m */; };
 		1B3EEFAE765BD58F321D414F /* UnsplashEndPoint.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B3EEA9E27C7ED41DD603507 /* UnsplashEndPoint.m */; };
 		B2075FCCA38D6251D6F2005F /* libPods-TF Unspash.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3BA2DDECE5CEACC3A0600FC3 /* libPods-TF Unspash.a */; };
 		DB0FAB32234440D600332D12 /* WaterFallLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = DB0FAB31234440D600332D12 /* WaterFallLayout.m */; };
+		DB0FAB362344997C00332D12 /* PhotoDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DB0FAB342344997C00332D12 /* PhotoDetailViewController.m */; };
+		DB0FAB372344997C00332D12 /* PhotoDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DB0FAB352344997C00332D12 /* PhotoDetailViewController.xib */; };
 		DB12B72B2341AE69004CE43D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = DB12B72A2341AE69004CE43D /* AppDelegate.m */; };
 		DB12B72E2341AE69004CE43D /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = DB12B72D2341AE69004CE43D /* SceneDelegate.m */; };
 		DB12B7312341AE69004CE43D /* TestingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DB12B7302341AE69004CE43D /* TestingViewController.m */; };
@@ -33,6 +36,8 @@
 		12F15F33BE15073DCEB6610F /* Pods-TF Unspash.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TF Unspash.release.xcconfig"; path = "Target Support Files/Pods-TF Unspash/Pods-TF Unspash.release.xcconfig"; sourceTree = "<group>"; };
 		1B3EE09F4F8371FCB846314F /* UnsplashEndPoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UnsplashEndPoint.h; sourceTree = "<group>"; };
 		1B3EE105F9693A3547BF3F18 /* ListPhotosViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListPhotosViewController.m; sourceTree = "<group>"; };
+		1B3EE165185AC1A9D95DA4FE /* CircleImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CircleImageView.h; sourceTree = "<group>"; };
+		1B3EE166A9C6B6F85A80F135 /* CircleImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CircleImageView.m; sourceTree = "<group>"; };
 		1B3EE393C72ACF5A4D1CF3FF /* UnsplashAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UnsplashAPI.h; sourceTree = "<group>"; };
 		1B3EE3B723C922D15C039A36 /* NetworkingManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkingManager.h; sourceTree = "<group>"; };
 		1B3EE42EEC576B0B19121BA0 /* UnsplashAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UnsplashAPI.m; sourceTree = "<group>"; };
@@ -53,6 +58,9 @@
 		85EE2CA72770B949C7FE0C2C /* Pods-TF Unspash.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TF Unspash.debug.xcconfig"; path = "Target Support Files/Pods-TF Unspash/Pods-TF Unspash.debug.xcconfig"; sourceTree = "<group>"; };
 		DB0FAB30234440D600332D12 /* WaterFallLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WaterFallLayout.h; sourceTree = "<group>"; };
 		DB0FAB31234440D600332D12 /* WaterFallLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WaterFallLayout.m; sourceTree = "<group>"; };
+		DB0FAB332344997C00332D12 /* PhotoDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PhotoDetailViewController.h; sourceTree = "<group>"; };
+		DB0FAB342344997C00332D12 /* PhotoDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PhotoDetailViewController.m; sourceTree = "<group>"; };
+		DB0FAB352344997C00332D12 /* PhotoDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PhotoDetailViewController.xib; sourceTree = "<group>"; };
 		DB12B7262341AE69004CE43D /* TF Unsplash.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "TF Unsplash.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB12B7292341AE69004CE43D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		DB12B72A2341AE69004CE43D /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -185,6 +193,9 @@
 				DB12B7302341AE69004CE43D /* TestingViewController.m */,
 				1B3EE105F9693A3547BF3F18 /* ListPhotosViewController.m */,
 				1B3EEC91E1C54F3806702B10 /* ListPhotosViewController.h */,
+				DB0FAB332344997C00332D12 /* PhotoDetailViewController.h */,
+				DB0FAB342344997C00332D12 /* PhotoDetailViewController.m */,
+				DB0FAB352344997C00332D12 /* PhotoDetailViewController.xib */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -208,6 +219,8 @@
 				DB12B746234214E6004CE43D /* PhotoCollectionViewCell.h */,
 				DB12B747234214E6004CE43D /* PhotoCollectionViewCell.m */,
 				DB12B748234214E6004CE43D /* PhotoCollectionViewCell.xib */,
+				1B3EE166A9C6B6F85A80F135 /* CircleImageView.m */,
+				1B3EE165185AC1A9D95DA4FE /* CircleImageView.h */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -289,6 +302,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DB0FAB372344997C00332D12 /* PhotoDetailViewController.xib in Resources */,
 				DB12B7392341AE6B004CE43D /* LaunchScreen.storyboard in Resources */,
 				DB12B74A234214E6004CE43D /* PhotoCollectionViewCell.xib in Resources */,
 				DB12B7362341AE6B004CE43D /* Assets.xcassets in Resources */,
@@ -342,7 +356,9 @@
 				1B3EE0D4255702B4580134D2 /* ListPhotosViewController.m in Sources */,
 				1B3EECC620318664E8171DBB /* USPhotoVM.m in Sources */,
 				1B3EECED01450395AF823680 /* UIViewController+ProcessView.m in Sources */,
+				DB0FAB362344997C00332D12 /* PhotoDetailViewController.m in Sources */,
 				1B3EE2F98873A3C59CC93DCE /* ListPhotosViewModel.m in Sources */,
+				1B3EEED506C0784AAAEE0C70 /* CircleImageView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

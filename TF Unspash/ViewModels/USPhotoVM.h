@@ -17,4 +17,22 @@
 // Presentation methods
 -(NSURL *) URLForDisplayInThumb;
 - (CGSize)photoSizeForColectionView;
+
+- (NSURL *)URLForDisplayInLarge;
+
+- (UIImage *)placeHolderImage;
+
+- (NSString *)totalLike;
+
+- (NSString *)userName;
+
+- (NSURL *)userAvatar;
+
+- (NSString *)instagramUsername;
+
+- (NSString *)createDateText;
+
+- (NSString *)totalLikeOfUser;
+
+- (NSString *)totalUserPhoto;
 @end

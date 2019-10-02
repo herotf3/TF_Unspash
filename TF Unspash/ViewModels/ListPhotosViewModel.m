@@ -77,4 +77,5 @@
 - (CGSize)sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
     return [_photos[indexPath.row] photoSizeForColectionView] ;
 }
+
 @end
