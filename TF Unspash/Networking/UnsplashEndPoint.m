@@ -15,12 +15,13 @@
 @property(nonatomic, copy) NSString * routePath;
 @property (nonatomic, strong) NSMutableDictionary * header;
 @property(nonatomic, strong) NSMutableURLRequest *request;
+@property(nonatomic, strong) NSURLComponents * URLComponents;
 @end
 
 @implementation UnsplashEndPoint {
 
 }
-
+#pragma  mark - Init
 - (instancetype)initWithEndPoint:(enum EndPoint)endPointRequest {
     self = [super init];
     if (self) {
@@ -34,31 +35,22 @@
     return [[self alloc] initWithEndPoint:endPointRequest];
 }
 
-- (NSString *)method {
-    return self.requestMethod;
-}
-
-- (NSString *)absolutePath {
-    return [NSString stringWithFormat:@"%@%@",UnsplashRootURL,self.routePath];
-}
-
-- (NSMutableDictionary *)httpHeader {
-    return self.header;
-}
-
-- (NSURLRequest *)urlRequest {
-    _request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:self.absolutePath]];
-    [_request setAllHTTPHeaderFields:self.httpHeader];
-    [_request setHTTPMethod:self.method];
-    // set params if need
-    if (self.parameter){
-        [_request setHTTPBody:[self httpBodyForParameters: self.parameter]];
+- (instancetype)initWithEndPointRequest:(enum EndPoint)endPointRequest bodyParameters:(NSDictionary *)params urlParameter:(NSDictionary *)urlParams {
+    self = [super init];
+    if (self) {
+        self.endPointRequest = endPointRequest;
+        self.parameter = params;
+        self.urlParameter = urlParams;
     }
 
-    return self.request;
+    return self;
 }
 
-// End point setter with updating some needed info
++ (instancetype)initWithEndPointRequest:(enum EndPoint)endPointRequest bodyParameters:(NSDictionary *)params urlParameter:(NSDictionary *)urlParams {
+    return [[self alloc] initWithEndPointRequest:endPointRequest bodyParameters:params urlParameter:urlParams];
+}
+
+// End point setter with updating needed info
 - (void)setEndPointRequest:(enum EndPoint)endPointRequest {
     _endPointRequest = endPointRequest;
     // setup all needed info for a specific request endpoint
@@ -73,6 +65,20 @@
     }
 }
 
+#pragma mark - Getter
+- (NSString *)method {
+    return self.requestMethod;
+}
+
+- (NSString *)absolutePath {
+    return [NSString stringWithFormat:@"%@%@",UnsplashRootURL,self.routePath];
+}
+
+- (NSMutableDictionary *)httpHeader {
+    return self.header;
+}
+
+#pragma mark - Functions
 - (NSData *)httpBodyForParameters:(NSDictionary *)parameters {
     NSMutableArray *parameterArray = [NSMutableArray array];
 
@@ -97,5 +103,32 @@
     return [string stringByAddingPercentEncodingWithAllowedCharacters:allowed];
 }
 
+#pragma mark -  Request Builder
+
+- (NSURLRequest *)urlRequest {
+    // Build URL request
+    self.URLComponents = [NSURLComponents componentsWithString:self.absolutePath];
+    // Add url parameters
+    if (self.urlParameter){
+        // set url query into url component
+        NSMutableArray<NSURLQueryItem *> *queryItems = [NSMutableArray new];
+        for (NSString * name in self.urlParameter ){
+            [queryItems addObject:[NSURLQueryItem queryItemWithName: name value: _urlParameter[name]]];
+        }
+
+        self.URLComponents.queryItems = queryItems;
+    }
+
+    _request = [NSMutableURLRequest requestWithURL:self.URLComponents.URL];
+    [_request setAllHTTPHeaderFields:self.httpHeader];
+    [_request setHTTPMethod:self.method];
+
+    // Add body parameter
+    if (self.parameter){
+        [_request setHTTPBody:[self httpBodyForParameters: self.parameter]];
+    }
+
+    return self.request;
+}
 
 @end

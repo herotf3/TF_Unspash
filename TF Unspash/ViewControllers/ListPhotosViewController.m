@@ -12,9 +12,9 @@
 
 #define PHOTO_CELL_ID @"PhotoCollectionCellId"
 
-#define NUMBER_OF_PHOTO_COLUMNS 3
+#define NUMBER_OF_PHOTO_COLUMNS 2
 
-@interface ListPhotosViewController() <UICollectionViewDataSource, UICollectionViewDelegate, WaterFallLayoutDelegate>
+@interface ListPhotosViewController() <UICollectionViewDataSource, UICollectionViewDelegate, WaterFallLayoutDelegate, ListPhotosViewModelsDelegate>
 @property (weak, nonatomic) IBOutlet UICollectionView * clvPhotos;
 
 @end
@@ -27,7 +27,7 @@
     [super viewDidLoad];
 
     [self setupCollectionView];
-    self.listPhotoVM = [[ListPhotosHandler alloc] initWithViewController:self];
+    self.listPhotoVM = [[ListPhotosViewModel alloc] initWithDelegate:self];
     [self.listPhotoVM fetchData];
 }
 
@@ -45,21 +45,20 @@
 #pragma mark  - Collection view data source
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return self.photos.count;
+    return [self.listPhotoVM numberOfPhoto];
 }
 
 - (__kindof UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     PhotoCollectionViewCell * cell = [collectionView dequeueReusableCellWithReuseIdentifier:PHOTO_CELL_ID forIndexPath:indexPath];
 
-    USPhotoVM *photoVM = self.photos[indexPath.row];
-    [cell bindDataWith:photoVM];
+    [cell bindDataWith:[self.listPhotoVM photoVMAtIndexPath: indexPath]];
     return cell;
 }
 
 #pragma mark - Water fall layout delegate
 
 - (CGSize)collectionView:(UICollectionView *)collectionView sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
-    return [self.photos[indexPath.row] photoSizeForColectionView];
+    return [self.listPhotoVM sizeForItemAtIndexPath:indexPath];
 }
 
 
@@ -67,11 +66,17 @@
     return NUMBER_OF_PHOTO_COLUMNS;
 }
 
-// Delegate for api did load
-- (void)didFinishLoadData {
+#pragma mark - List Photos VM Delegate
+- (void)onFetching {
+    [self showLoading];
+}
+
+- (void)didFetchCompleted {
     dispatch_async(dispatch_get_main_queue(), ^{
+        [self hideLoading];
         [self.clvPhotos reloadData];
     });
 }
+
 
 @end

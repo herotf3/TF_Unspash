@@ -14,16 +14,23 @@ enum EndPoint {
 
 @property (nonatomic) enum EndPoint endPointRequest;
 
-@property(nonatomic, strong) NSDictionary *parameter;
+@property(nonatomic, strong) NSDictionary<NSString*,NSString *> *parameter;
+@property(nonatomic, strong) NSDictionary<NSString*,NSString *> *urlParameter;
 
 // init
 - (instancetype)initWithEndPoint:(enum EndPoint)endPointRequest;
 
 + (instancetype)initWithEndPoint:(enum EndPoint)endPointRequest;
 
+- (instancetype)initWithEndPointRequest:(enum EndPoint)endPointRequest bodyParameters:(NSDictionary *)params urlParameter:(NSDictionary *)urlParams;
+
++ (instancetype)initWithEndPointRequest:(enum EndPoint)endPointRequest bodyParameters:(NSDictionary *)params urlParameter:(NSDictionary *)urlParams;
+
+
 // GETTER
 -(NSString *) method;
 -(NSString *) absolutePath;
 -(NSMutableDictionary *) httpHeader;
 -(NSURLRequest *) urlRequest;
+
 @end

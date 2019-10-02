@@ -6,12 +6,10 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 #import "USPhotoVM.h"
-#import "ListPhotosHandler.h"
+#import "ListPhotosViewModel.h"
 
 @interface ListPhotosViewController : UIViewController
 
-@property (nonatomic, strong) NSArray<USPhotoVM*> * photos;
-@property (nonatomic, strong) ListPhotosHandler* listPhotoVM;
+@property (nonatomic, strong) ListPhotosViewModel* listPhotoVM;
 
-- (void)didFinishLoadData;
 @end

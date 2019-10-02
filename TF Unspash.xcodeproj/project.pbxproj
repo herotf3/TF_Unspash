@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1B3EE0D4255702B4580134D2 /* ListPhotosViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B3EE105F9693A3547BF3F18 /* ListPhotosViewController.m */; };
-		1B3EE2F98873A3C59CC93DCE /* ListPhotosHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B3EEF47540C80E532914A3A /* ListPhotosHandler.m */; };
+		1B3EE2F98873A3C59CC93DCE /* ListPhotosViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B3EEF47540C80E532914A3A /* ListPhotosViewModel.m */; };
 		1B3EE62B34A0811D6FFF3DD7 /* USPhoto.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B3EEDF3AFF11A76ADB7E064 /* USPhoto.m */; };
 		1B3EE6D6380F5541FF28B75B /* UnsplashAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B3EE42EEC576B0B19121BA0 /* UnsplashAPI.m */; };
 		1B3EE9D784D62715C8C8B7C9 /* AppConfigs.h in Resources */ = {isa = PBXBuildFile; fileRef = 1B3EEF1B2D91B73308A24A41 /* AppConfigs.h */; };
@@ -37,7 +37,7 @@
 		1B3EE3B723C922D15C039A36 /* NetworkingManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkingManager.h; sourceTree = "<group>"; };
 		1B3EE42EEC576B0B19121BA0 /* UnsplashAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UnsplashAPI.m; sourceTree = "<group>"; };
 		1B3EE44C2CC248D308FA5655 /* USPhotoVM.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = USPhotoVM.m; sourceTree = "<group>"; };
-		1B3EE4FF7EDAB252EEA64A75 /* ListPhotosHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListPhotosHandler.h; sourceTree = "<group>"; };
+		1B3EE4FF7EDAB252EEA64A75 /* ListPhotosViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListPhotosViewModel.h; sourceTree = "<group>"; };
 		1B3EEA9E27C7ED41DD603507 /* UnsplashEndPoint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UnsplashEndPoint.m; sourceTree = "<group>"; };
 		1B3EEAC77F517AF7F54D3B54 /* USPhotoVM.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = USPhotoVM.h; sourceTree = "<group>"; };
 		1B3EEB307BD103B42C1596C8 /* UIViewController+ProcessView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+ProcessView.h"; sourceTree = "<group>"; };
@@ -47,7 +47,7 @@
 		1B3EEDF3AFF11A76ADB7E064 /* USPhoto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = USPhoto.m; sourceTree = "<group>"; };
 		1B3EEF1B2D91B73308A24A41 /* AppConfigs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppConfigs.h; sourceTree = "<group>"; };
 		1B3EEF33B244C0CEF83B71D4 /* USPhoto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = USPhoto.h; sourceTree = "<group>"; };
-		1B3EEF47540C80E532914A3A /* ListPhotosHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListPhotosHandler.m; sourceTree = "<group>"; };
+		1B3EEF47540C80E532914A3A /* ListPhotosViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListPhotosViewModel.m; sourceTree = "<group>"; };
 		1B3EEFCF38ECBED3F17D61B0 /* NetworkingManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetworkingManager.m; sourceTree = "<group>"; };
 		3BA2DDECE5CEACC3A0600FC3 /* libPods-TF Unspash.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-TF Unspash.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		85EE2CA72770B949C7FE0C2C /* Pods-TF Unspash.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TF Unspash.debug.xcconfig"; path = "Target Support Files/Pods-TF Unspash/Pods-TF Unspash.debug.xcconfig"; sourceTree = "<group>"; };
@@ -95,8 +95,8 @@
 			children = (
 				1B3EE44C2CC248D308FA5655 /* USPhotoVM.m */,
 				1B3EEAC77F517AF7F54D3B54 /* USPhotoVM.h */,
-				1B3EEF47540C80E532914A3A /* ListPhotosHandler.m */,
-				1B3EE4FF7EDAB252EEA64A75 /* ListPhotosHandler.h */,
+				1B3EEF47540C80E532914A3A /* ListPhotosViewModel.m */,
+				1B3EE4FF7EDAB252EEA64A75 /* ListPhotosViewModel.h */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -342,7 +342,7 @@
 				1B3EE0D4255702B4580134D2 /* ListPhotosViewController.m in Sources */,
 				1B3EECC620318664E8171DBB /* USPhotoVM.m in Sources */,
 				1B3EECED01450395AF823680 /* UIViewController+ProcessView.m in Sources */,
-				1B3EE2F98873A3C59CC93DCE /* ListPhotosHandler.m in Sources */,
+				1B3EE2F98873A3C59CC93DCE /* ListPhotosViewModel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
