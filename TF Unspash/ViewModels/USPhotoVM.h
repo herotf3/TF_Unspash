@@ -12,7 +12,7 @@
 @property (nonatomic, strong) USPhoto* photo;
 
 - (instancetype)initWithPhoto:(USPhoto *)photo;
-+ (instancetype)presenterWithPhoto:(USPhoto *)photo;
++ (instancetype)photoVMWithPhoto:(USPhoto *)photo;
 
 // Presentation methods
 -(NSURL *) URLForDisplayInThumb;

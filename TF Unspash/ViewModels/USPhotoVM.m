@@ -20,7 +20,7 @@
     return self;
 }
 
-+ (instancetype)presenterWithPhoto:(USPhoto *)photo {
++ (instancetype)photoVMWithPhoto:(USPhoto *)photo {
     return [[self alloc] initWithPhoto:photo];
 }
 

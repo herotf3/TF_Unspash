@@ -8,13 +8,11 @@
 #import "PhotoCollectionViewCell.h"
 #import "UnsplashAPI.h"
 #import "WaterFallLayout.h"
-#import "USPhotoVM.h"
-#import "SupportFunctions.h"
 #import "UIViewController+ProcessView.h"
 
 #define PHOTO_CELL_ID @"PhotoCollectionCellId"
 
-#define NUMBER_OF_PHOTO_COLUMNS 2
+#define NUMBER_OF_PHOTO_COLUMNS 3
 
 @interface ListPhotosViewController() <UICollectionViewDataSource, UICollectionViewDelegate, WaterFallLayoutDelegate>
 @property (weak, nonatomic) IBOutlet UICollectionView * clvPhotos;
@@ -29,29 +27,8 @@
     [super viewDidLoad];
 
     [self setupCollectionView];
-    [self loadListPhotos];
-}
-
-- (void)loadListPhotos {
-    [self showLoading];
-    [UnsplashAPI getListPhotosWithCompletionHandler:^(NSArray *photos, NSString *error) {
-        [self hideLoading];
-        if (error){
-            return;
-        }
-        if (photos){
-            self.photos = map(photos, ^id(USPhoto * value) {
-                return [USPhotoVM presenterWithPhoto:value];
-            });
-        }
-    }];
-}
-
-- (void)setPhotos:(NSArray *)photos{
-    _photos = photos;
-    dispatch_async(dispatch_get_main_queue(), ^{
-        [self.clvPhotos reloadData];
-    });
+    self.listPhotoVM = [[ListPhotosHandler alloc] initWithViewController:self];
+    [self.listPhotoVM fetchData];
 }
 
 - (void)setupCollectionView {
@@ -74,8 +51,8 @@
 - (__kindof UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     PhotoCollectionViewCell * cell = [collectionView dequeueReusableCellWithReuseIdentifier:PHOTO_CELL_ID forIndexPath:indexPath];
 
-    USPhotoVM *photoPresenter = self.photos[indexPath.row];
-    [cell bindDataWith:photoPresenter];
+    USPhotoVM *photoVM = self.photos[indexPath.row];
+    [cell bindDataWith:photoVM];
     return cell;
 }
 
@@ -88,6 +65,13 @@
 
 - (NSInteger)waterFallLayoutNumberOfColumns {
     return NUMBER_OF_PHOTO_COLUMNS;
+}
+
+// Delegate for api did load
+- (void)didFinishLoadData {
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self.clvPhotos reloadData];
+    });
 }
 
 @end

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1B3EE0D4255702B4580134D2 /* ListPhotosViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B3EE105F9693A3547BF3F18 /* ListPhotosViewController.m */; };
+		1B3EE2F98873A3C59CC93DCE /* ListPhotosHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B3EEF47540C80E532914A3A /* ListPhotosHandler.m */; };
 		1B3EE62B34A0811D6FFF3DD7 /* USPhoto.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B3EEDF3AFF11A76ADB7E064 /* USPhoto.m */; };
 		1B3EE6D6380F5541FF28B75B /* UnsplashAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B3EE42EEC576B0B19121BA0 /* UnsplashAPI.m */; };
 		1B3EE9D784D62715C8C8B7C9 /* AppConfigs.h in Resources */ = {isa = PBXBuildFile; fileRef = 1B3EEF1B2D91B73308A24A41 /* AppConfigs.h */; };
@@ -16,6 +17,7 @@
 		1B3EECED01450395AF823680 /* UIViewController+ProcessView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B3EED8C6AAE1D92D78F36B9 /* UIViewController+ProcessView.m */; };
 		1B3EEFAE765BD58F321D414F /* UnsplashEndPoint.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B3EEA9E27C7ED41DD603507 /* UnsplashEndPoint.m */; };
 		B2075FCCA38D6251D6F2005F /* libPods-TF Unspash.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3BA2DDECE5CEACC3A0600FC3 /* libPods-TF Unspash.a */; };
+		DB0FAB32234440D600332D12 /* WaterFallLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = DB0FAB31234440D600332D12 /* WaterFallLayout.m */; };
 		DB12B72B2341AE69004CE43D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = DB12B72A2341AE69004CE43D /* AppDelegate.m */; };
 		DB12B72E2341AE69004CE43D /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = DB12B72D2341AE69004CE43D /* SceneDelegate.m */; };
 		DB12B7312341AE69004CE43D /* TestingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DB12B7302341AE69004CE43D /* TestingViewController.m */; };
@@ -25,7 +27,6 @@
 		DB12B73C2341AE6B004CE43D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = DB12B73B2341AE6B004CE43D /* main.m */; };
 		DB12B749234214E6004CE43D /* PhotoCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DB12B747234214E6004CE43D /* PhotoCollectionViewCell.m */; };
 		DB12B74A234214E6004CE43D /* PhotoCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DB12B748234214E6004CE43D /* PhotoCollectionViewCell.xib */; };
-		DB14BAD22342FE7C003804B1 /* WaterFallLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = DB14BAD12342FE7C003804B1 /* WaterFallLayout.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		1B3EE3B723C922D15C039A36 /* NetworkingManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkingManager.h; sourceTree = "<group>"; };
 		1B3EE42EEC576B0B19121BA0 /* UnsplashAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UnsplashAPI.m; sourceTree = "<group>"; };
 		1B3EE44C2CC248D308FA5655 /* USPhotoVM.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = USPhotoVM.m; sourceTree = "<group>"; };
+		1B3EE4FF7EDAB252EEA64A75 /* ListPhotosHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListPhotosHandler.h; sourceTree = "<group>"; };
 		1B3EEA9E27C7ED41DD603507 /* UnsplashEndPoint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UnsplashEndPoint.m; sourceTree = "<group>"; };
 		1B3EEAC77F517AF7F54D3B54 /* USPhotoVM.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = USPhotoVM.h; sourceTree = "<group>"; };
 		1B3EEB307BD103B42C1596C8 /* UIViewController+ProcessView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+ProcessView.h"; sourceTree = "<group>"; };
@@ -45,9 +47,12 @@
 		1B3EEDF3AFF11A76ADB7E064 /* USPhoto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = USPhoto.m; sourceTree = "<group>"; };
 		1B3EEF1B2D91B73308A24A41 /* AppConfigs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppConfigs.h; sourceTree = "<group>"; };
 		1B3EEF33B244C0CEF83B71D4 /* USPhoto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = USPhoto.h; sourceTree = "<group>"; };
+		1B3EEF47540C80E532914A3A /* ListPhotosHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListPhotosHandler.m; sourceTree = "<group>"; };
 		1B3EEFCF38ECBED3F17D61B0 /* NetworkingManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetworkingManager.m; sourceTree = "<group>"; };
 		3BA2DDECE5CEACC3A0600FC3 /* libPods-TF Unspash.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-TF Unspash.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		85EE2CA72770B949C7FE0C2C /* Pods-TF Unspash.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TF Unspash.debug.xcconfig"; path = "Target Support Files/Pods-TF Unspash/Pods-TF Unspash.debug.xcconfig"; sourceTree = "<group>"; };
+		DB0FAB30234440D600332D12 /* WaterFallLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WaterFallLayout.h; sourceTree = "<group>"; };
+		DB0FAB31234440D600332D12 /* WaterFallLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WaterFallLayout.m; sourceTree = "<group>"; };
 		DB12B7262341AE69004CE43D /* TF Unsplash.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "TF Unsplash.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB12B7292341AE69004CE43D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		DB12B72A2341AE69004CE43D /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -63,8 +68,6 @@
 		DB12B746234214E6004CE43D /* PhotoCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PhotoCollectionViewCell.h; sourceTree = "<group>"; };
 		DB12B747234214E6004CE43D /* PhotoCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PhotoCollectionViewCell.m; sourceTree = "<group>"; };
 		DB12B748234214E6004CE43D /* PhotoCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PhotoCollectionViewCell.xib; sourceTree = "<group>"; };
-		DB14BAD02342FE7C003804B1 /* WaterFallLayout.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WaterFallLayout.h; sourceTree = "<group>"; };
-		DB14BAD12342FE7C003804B1 /* WaterFallLayout.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WaterFallLayout.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,6 +95,8 @@
 			children = (
 				1B3EE44C2CC248D308FA5655 /* USPhotoVM.m */,
 				1B3EEAC77F517AF7F54D3B54 /* USPhotoVM.h */,
+				1B3EEF47540C80E532914A3A /* ListPhotosHandler.m */,
+				1B3EE4FF7EDAB252EEA64A75 /* ListPhotosHandler.h */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -144,7 +149,6 @@
 		DB12B7282341AE69004CE43D /* TF Unspash */ = {
 			isa = PBXGroup;
 			children = (
-				DB12B74523421479004CE43D /* Views */,
 				DB12B74423421296004CE43D /* AppDelegate */,
 				DB12B74323421283004CE43D /* ViewControllers */,
 				DB12B7422341AEB9004CE43D /* Networking */,
@@ -154,6 +158,7 @@
 				DB12B73A2341AE6B004CE43D /* Info.plist */,
 				1B3EE11B65CCA2453A1C5769 /* Configurations */,
 				1B3EEAF9A6860127420E86A4 /* Models */,
+				DB12B74523421479004CE43D /* Views */,
 				1B3EE380C61853BA997126AD /* ViewModels */,
 				1B3EEDDAFF2B6EB165F96D37 /* Utils */,
 			);
@@ -210,10 +215,11 @@
 		DB14BACF2342FE52003804B1 /* Layouts */ = {
 			isa = PBXGroup;
 			children = (
-				DB14BAD02342FE7C003804B1 /* WaterFallLayout.h */,
-				DB14BAD12342FE7C003804B1 /* WaterFallLayout.m */,
+				DB0FAB30234440D600332D12 /* WaterFallLayout.h */,
+				DB0FAB31234440D600332D12 /* WaterFallLayout.m */,
 			);
-			path = Layouts;
+			name = Layouts;
+			path = ../Layouts;
 			sourceTree = "<group>";
 		};
 		FCE15B707A9B36D9E0F65648 /* Pods */ = {
@@ -323,7 +329,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DB14BAD22342FE7C003804B1 /* WaterFallLayout.m in Sources */,
+				DB0FAB32234440D600332D12 /* WaterFallLayout.m in Sources */,
 				DB12B7312341AE69004CE43D /* TestingViewController.m in Sources */,
 				DB12B72B2341AE69004CE43D /* AppDelegate.m in Sources */,
 				DB12B73C2341AE6B004CE43D /* main.m in Sources */,
@@ -336,6 +342,7 @@
 				1B3EE0D4255702B4580134D2 /* ListPhotosViewController.m in Sources */,
 				1B3EECC620318664E8171DBB /* USPhotoVM.m in Sources */,
 				1B3EECED01450395AF823680 /* UIViewController+ProcessView.m in Sources */,
+				1B3EE2F98873A3C59CC93DCE /* ListPhotosHandler.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
