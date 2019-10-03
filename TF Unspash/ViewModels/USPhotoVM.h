@@ -14,9 +14,7 @@
 - (instancetype)initWithPhoto:(USPhoto *)photo;
 + (instancetype)photoVMWithPhoto:(USPhoto *)photo;
 
-// Presentation methods
 -(NSURL *) URLForDisplayInThumb;
-- (CGSize)photoSizeForColectionView;
 
 - (NSURL *)URLForDisplayInLarge;
 

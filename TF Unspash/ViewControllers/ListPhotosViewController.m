@@ -10,6 +10,7 @@
 #import "WaterFallLayout.h"
 #import "UIViewController+ProcessView.h"
 #import "PhotoDetailViewController.h"
+#import "USPhoto.h"
 
 #define PHOTO_CELL_ID @"PhotoCollectionCellId"
 
@@ -46,13 +47,13 @@
 #pragma mark  - Collection view data source
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return [self.listPhotoVM numberOfPhoto];
+    return [self.listPhotoVM.photoViewModels count];
 }
 
 - (__kindof UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     PhotoCollectionViewCell * cell = [collectionView dequeueReusableCellWithReuseIdentifier:PHOTO_CELL_ID forIndexPath:indexPath];
 
-    [cell bindDataWith:[self.listPhotoVM photoVMAtIndexPath: indexPath]];
+    [cell bindDataWith:self.listPhotoVM.photoViewModels[indexPath.row]];
     return cell;
 }
 
@@ -60,7 +61,7 @@
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     PhotoDetailViewController * detailVC = [PhotoDetailViewController new];
-    detailVC.photoVM = [self.listPhotoVM photoVMAtIndexPath:indexPath];
+    detailVC.photoVM = self.listPhotoVM.photoViewModels[indexPath.row];
 
     [self.navigationController pushViewController:detailVC animated:YES];
 }
@@ -69,7 +70,8 @@
 #pragma mark - Water fall layout delegate
 
 - (CGSize)collectionView:(UICollectionView *)collectionView sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
-    return [self.listPhotoVM sizeForItemAtIndexPath:indexPath];
+    USPhotoVM * photoVM = self.listPhotoVM.photoViewModels[indexPath.row];
+    return CGSizeMake(photoVM.photo.width,photoVM.photo.height);
 }
 
 

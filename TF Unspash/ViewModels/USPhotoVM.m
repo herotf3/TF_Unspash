@@ -29,10 +29,6 @@
     return [[NSURL alloc] initWithString:self.photo.urls.thumb];
 }
 
-- (CGSize)photoSizeForColectionView {
-    return CGSizeMake(self.photo.width, self.photo.height);
-}
-
 - (NSURL *)URLForDisplayInLarge {
     return [[NSURL alloc] initWithString:self.photo.urls.full];
 }

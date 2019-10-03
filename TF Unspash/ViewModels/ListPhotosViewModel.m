@@ -37,7 +37,6 @@
     return [[self alloc] initWithDelegate:delegate];
 }
 
-
 - (void)fetchData {
     [self.delegate onFetching];
 
@@ -65,17 +64,8 @@
 //    return indexPaths;
 //}
 
-// Data source
-- (NSInteger)numberOfPhoto {
-    return self.photos.count;
-}
-
-- (USPhotoVM *)photoVMAtIndexPath:(NSIndexPath *)indexPath {
-    return self.photos[indexPath.row];
-}
-
-- (CGSize)sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
-    return [_photos[indexPath.row] photoSizeForColectionView] ;
+- (NSArray <USPhotoVM *> *)photoViewModels {
+    return _photos;
 }
 
 @end

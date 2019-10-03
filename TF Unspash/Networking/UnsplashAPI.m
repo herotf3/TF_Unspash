@@ -48,8 +48,7 @@
 
         NSLog(@"Request successfully with response: %@",dataDict);
 
-        NSMutableArray * photos = [NSMutableArray new];
-//       for (NSDictionary *photoDict : dataDict[@""])
+        NSMutableArray * photos;
         photos = map(dataDict, ^id(id dict) {
             USPhoto *  photo = [USPhoto fromJSONDictionary: dict];
             return photo;

@@ -25,10 +25,5 @@
 
 - (void)fetchData;
 
-
-- (NSInteger)numberOfPhoto;
-
-- (USPhotoVM *_Nonnull)photoVMAtIndexPath:(NSIndexPath *_Nonnull)path;
-
-- (CGSize)sizeForItemAtIndexPath:(NSIndexPath *)path;
+-(NSArray <USPhotoVM*>*)photoViewModels;
 @end
