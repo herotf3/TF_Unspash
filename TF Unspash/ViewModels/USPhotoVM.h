@@ -9,12 +9,13 @@
 
 
 @interface USPhotoVM : NSObject
-@property (nonatomic, strong) USPhoto* photo;
+@property(nonatomic, strong) USPhoto *photo;
 
 - (instancetype)initWithPhoto:(USPhoto *)photo;
+
 + (instancetype)photoVMWithPhoto:(USPhoto *)photo;
 
--(NSURL *) URLForDisplayInThumb;
+- (NSURL *)URLForDisplayInThumb;
 
 - (NSURL *)URLForDisplayInLarge;
 

@@ -11,17 +11,17 @@
  */
 @interface UnsplashAPI : NSObject
 
-+(void) getListPhotosWithCompletionHandler:(void(^)(NSArray * photos, NSString *error))completion;
++ (void)getListPhotosWithCompletionHandler:(void (^)(NSArray *photos, NSString *error))completion;
 
-+ (void) getListPhotosInPage:(NSInteger) page
-                  completion:(void(^)(NSArray *photos, NSString * errorMsg)) completion;
++ (void)getListPhotosInPage:(NSInteger)page
+                 completion:(void (^)(NSArray *photos, NSString *errorMsg))completion;
 
-+ (void) getListPhotosInPage:(NSInteger) page
-      withNumberPhotoPerPage:(NSInteger) nPerPage
-                  completion:(void(^)(NSArray *photos, NSString * errorMsg)) completion;
++ (void)getListPhotosInPage:(NSInteger)page
+     withNumberPhotoPerPage:(NSInteger)nPerPage
+                 completion:(void (^)(NSArray *photos, NSString *errorMsg))completion;
 
-+ (void) getListPhotosInPage:(NSInteger) page
-      withNumberPhotoPerPage:(NSInteger) nPerPage orderBy:(NSString *) orderBy
-                  completion:(void(^)(NSArray *photos, NSString * errorMsg)) completion;
++ (void)getListPhotosInPage:(NSInteger)page
+     withNumberPhotoPerPage:(NSInteger)nPerPage orderBy:(NSString *)orderBy
+                 completion:(void (^)(NSArray *photos, NSString *errorMsg))completion;
 
 @end

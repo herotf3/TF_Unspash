@@ -8,7 +8,6 @@
 
 #import "TestingViewController.h"
 #import "UnsplashAPI.h"
-#import "USPhoto.h"
 
 
 @interface TestingViewController ()
@@ -25,10 +24,10 @@
 
 - (void)loadPhotosData {
     [UnsplashAPI getListPhotosWithCompletionHandler:^(NSArray *photos, NSString *error) {
-        if (error){
+        if (error) {
             return;
         }
-        if (photos){
+        if (photos) {
             self.photos = photos;
         }
     }];

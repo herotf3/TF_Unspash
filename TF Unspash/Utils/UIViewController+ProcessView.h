@@ -7,6 +7,7 @@
 #import <UIKit/UIKit.h>
 
 @interface UIViewController (ProcessView)
--(void) showLoading;
--(void) hideLoading;
+- (void)showLoading;
+
+- (void)hideLoading;
 @end

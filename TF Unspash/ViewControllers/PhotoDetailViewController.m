@@ -11,15 +11,15 @@
 #import "USPhotoVM.h"
 
 @interface PhotoDetailViewController ()
-@property (weak, nonatomic) IBOutlet UIImageView *imvMainPhoto;
-@property (weak, nonatomic) IBOutlet UILabel *lbCreateAtDate;
-@property (weak, nonatomic) IBOutlet UIView *userInfoView;
-@property (weak, nonatomic) IBOutlet UILabel *lbTotalLikes;
-@property (weak, nonatomic) IBOutlet UILabel *userName;
-@property (weak, nonatomic) IBOutlet UILabel *lbInstagram;
-@property (weak, nonatomic) IBOutlet UIImageView *imvAvatar;
-@property (weak, nonatomic) IBOutlet UILabel *lbTotalLikeOfUser;
-@property (weak, nonatomic) IBOutlet UILabel *lbTotalUserPhoto;
+@property(weak, nonatomic) IBOutlet UIImageView *imvMainPhoto;
+@property(weak, nonatomic) IBOutlet UILabel *lbCreateAtDate;
+@property(weak, nonatomic) IBOutlet UIView *userInfoView;
+@property(weak, nonatomic) IBOutlet UILabel *lbTotalLikes;
+@property(weak, nonatomic) IBOutlet UILabel *userName;
+@property(weak, nonatomic) IBOutlet UILabel *lbInstagram;
+@property(weak, nonatomic) IBOutlet UIImageView *imvAvatar;
+@property(weak, nonatomic) IBOutlet UILabel *lbTotalLikeOfUser;
+@property(weak, nonatomic) IBOutlet UILabel *lbTotalUserPhoto;
 
 @end
 
@@ -37,7 +37,7 @@
     [_imvMainPhoto sd_setImageWithURL:[self.photoVM URLForDisplayInLarge] placeholderImage:_photoVM.placeHolderImage];
     _lbTotalLikes.text = _photoVM.totalLike;
     _userName.text = _photoVM.userName;
-    _lbInstagram.text = _photoVM.instagramUsername ;
+    _lbInstagram.text = _photoVM.instagramUsername;
     _lbCreateAtDate.text = _photoVM.createDateText;
     _lbTotalLikeOfUser.text = _photoVM.totalLikeOfUser;
     _lbTotalUserPhoto.text = _photoVM.totalUserPhoto;

@@ -44,7 +44,7 @@
 
 
 - (NSString *)userName {
-    NSString * fullName = [NSString stringWithFormat:@"%@ %@", self.photo.user.firstName, self.photo.user.lastName];
+    NSString *fullName = [NSString stringWithFormat:@"%@ %@", self.photo.user.firstName, self.photo.user.lastName];
     return fullName;
 }
 
@@ -54,11 +54,11 @@
 
 
 - (NSString *)instagramUsername {
-    return [NSString stringWithFormat:@"Instagram: %@",self.photo.user.instagramUsername];
+    return [NSString stringWithFormat:@"Instagram: %@", self.photo.user.instagramUsername];
 }
 
 - (NSString *)createDateText {
-    NSDateFormatter * dateFormatter = [NSDateFormatter new];
+    NSDateFormatter *dateFormatter = [NSDateFormatter new];
     dateFormatter.dateFormat = @"yyyy-MM-dd'T'HH:mm:ssZZZZZ";
     NSDate *date = [dateFormatter dateFromString:self.photo.createdAt];
 

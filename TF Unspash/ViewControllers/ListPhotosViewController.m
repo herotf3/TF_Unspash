@@ -6,7 +6,6 @@
 #import <SDWebImage/UIImageView+WebCache.h>
 #import "ListPhotosViewController.h"
 #import "PhotoCollectionViewCell.h"
-#import "UnsplashAPI.h"
 #import "WaterFallLayout.h"
 #import "UIViewController+ProcessView.h"
 #import "PhotoDetailViewController.h"
@@ -16,8 +15,8 @@
 
 #define NUMBER_OF_PHOTO_COLUMNS 2
 
-@interface ListPhotosViewController() <UICollectionViewDataSource, UICollectionViewDelegate, WaterFallLayoutDelegate, ListPhotosViewModelsDelegate>
-@property (weak, nonatomic) IBOutlet UICollectionView * clvPhotos;
+@interface ListPhotosViewController () <UICollectionViewDataSource, UICollectionViewDelegate, WaterFallLayoutDelegate, ListPhotosViewModelsDelegate>
+@property(weak, nonatomic) IBOutlet UICollectionView *clvPhotos;
 
 @end
 
@@ -39,8 +38,8 @@
     _clvPhotos.dataSource = self;
     numberOfColumn = 2;
 
-    if ([_clvPhotos.collectionViewLayout isKindOfClass:WaterFallLayout.class]){
-        ((WaterFallLayout *)_clvPhotos.collectionViewLayout).delegate = self;
+    if ([_clvPhotos.collectionViewLayout isKindOfClass:WaterFallLayout.class]) {
+        ((WaterFallLayout *) _clvPhotos.collectionViewLayout).delegate = self;
     }
 }
 
@@ -51,7 +50,7 @@
 }
 
 - (__kindof UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-    PhotoCollectionViewCell * cell = [collectionView dequeueReusableCellWithReuseIdentifier:PHOTO_CELL_ID forIndexPath:indexPath];
+    PhotoCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:PHOTO_CELL_ID forIndexPath:indexPath];
 
     [cell bindDataWith:self.listPhotoVM.photoViewModels[indexPath.row]];
     return cell;
@@ -60,7 +59,7 @@
 #pragma mark - Collection view delegate
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-    PhotoDetailViewController * detailVC = [PhotoDetailViewController new];
+    PhotoDetailViewController *detailVC = [PhotoDetailViewController new];
     detailVC.photoVM = self.listPhotoVM.photoViewModels[indexPath.row];
 
     [self.navigationController pushViewController:detailVC animated:YES];
@@ -70,8 +69,8 @@
 #pragma mark - Water fall layout delegate
 
 - (CGSize)collectionView:(UICollectionView *)collectionView sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
-    USPhotoVM * photoVM = self.listPhotoVM.photoViewModels[indexPath.row];
-    return CGSizeMake(photoVM.photo.width,photoVM.photo.height);
+    USPhotoVM *photoVM = self.listPhotoVM.photoViewModels[indexPath.row];
+    return CGSizeMake(photoVM.photo.width, photoVM.photo.height);
 }
 
 
@@ -80,6 +79,7 @@
 }
 
 #pragma mark - List Photos VM Delegate
+
 - (void)onFetching {
     [self showLoading];
 }

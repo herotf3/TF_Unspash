@@ -14,7 +14,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @end
 
-@interface USPhotoLinks (JSONConversion)    		
+@interface USPhotoLinks (JSONConversion)
 + (instancetype)fromJSONDictionary:(NSDictionary *)dict;
 
 @end

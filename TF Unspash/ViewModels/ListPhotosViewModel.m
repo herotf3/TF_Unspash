@@ -8,16 +8,14 @@
 #import "UnsplashAPI.h"
 #import "SupportFunctions.h"
 #import "ListPhotosViewController.h"
-#import "UIViewController+ProcessView.h"
-#import "USPhotoVM.h"
 
 #define N_PHOTO_PER_PAGE 30
 
 #define ORDER_LATEST @"latest"
 
-@interface  ListPhotosViewModel()
+@interface ListPhotosViewModel ()
 
-@property (nonatomic, strong) NSArray<USPhotoVM*> *photos;
+@property(nonatomic, strong) NSArray<USPhotoVM *> *photos;
 
 @property(nonatomic) NSInteger page;
 @end
@@ -41,11 +39,11 @@
     [self.delegate onFetching];
 
     [UnsplashAPI getListPhotosInPage:self.page withNumberPhotoPerPage:N_PHOTO_PER_PAGE orderBy:ORDER_LATEST completion:^(NSArray *photos, NSString *errorMsg) {
-        if (errorMsg){
+        if (errorMsg) {
             return;
         }
-        if (photos){
-            self.photos = map(photos, ^id(USPhoto * value) {
+        if (photos) {
+            self.photos = map(photos, ^id(USPhoto *value) {
                 return [USPhotoVM photoVMWithPhoto:value];
             });
         }

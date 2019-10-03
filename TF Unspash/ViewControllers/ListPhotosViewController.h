@@ -10,6 +10,6 @@
 
 @interface ListPhotosViewController : UIViewController
 
-@property (nonatomic, strong) ListPhotosViewModel* listPhotoVM;
+@property(nonatomic, strong) ListPhotosViewModel *listPhotoVM;
 
 @end

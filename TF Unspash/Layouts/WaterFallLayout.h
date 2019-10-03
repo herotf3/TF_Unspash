@@ -12,13 +12,14 @@ NS_ASSUME_NONNULL_BEGIN
 
 @protocol WaterFallLayoutDelegate <NSObject>
 @required
--(CGSize)collectionView:(UICollectionView *)collectionView sizeForItemAtIndexPath:(NSIndexPath *)indexPath;
--(NSInteger)waterFallLayoutNumberOfColumns;
+- (CGSize)collectionView:(UICollectionView *)collectionView sizeForItemAtIndexPath:(NSIndexPath *)indexPath;
+
+- (NSInteger)waterFallLayoutNumberOfColumns;
 @end
 
 @interface WaterFallLayout : UICollectionViewLayout
 
-@property (weak, nonatomic, nullable) id<WaterFallLayoutDelegate> delegate;
+@property(weak, nonatomic, nullable) id <WaterFallLayoutDelegate> delegate;
 
 - (NSInteger)numberOfColumn;
 @end

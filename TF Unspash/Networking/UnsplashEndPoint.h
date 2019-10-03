@@ -12,10 +12,10 @@ enum EndPoint {
 
 @interface UnsplashEndPoint : NSObject
 
-@property (nonatomic) enum EndPoint endPointRequest;
+@property(nonatomic) enum EndPoint endPointRequest;
 
-@property(nonatomic, strong) NSDictionary<NSString*,NSString *> *parameter;
-@property(nonatomic, strong) NSDictionary<NSString*,NSString *> *urlParameter;
+@property(nonatomic, strong) NSDictionary<NSString *, NSString *> *parameter;
+@property(nonatomic, strong) NSDictionary<NSString *, NSString *> *urlParameter;
 
 // init
 - (instancetype)initWithEndPoint:(enum EndPoint)endPointRequest;
@@ -28,9 +28,12 @@ enum EndPoint {
 
 
 // GETTER
--(NSString *) method;
--(NSString *) absolutePath;
--(NSMutableDictionary *) httpHeader;
--(NSURLRequest *) urlRequest;
+- (NSString *)method;
+
+- (NSString *)absolutePath;
+
+- (NSMutableDictionary *)httpHeader;
+
+- (NSURLRequest *)urlRequest;
 
 @end

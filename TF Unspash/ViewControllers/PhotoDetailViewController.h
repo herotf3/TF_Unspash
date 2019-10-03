@@ -14,7 +14,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface PhotoDetailViewController : UIViewController
 
-@property (nonatomic, strong) USPhotoVM* photoVM;
+@property(nonatomic, strong) USPhotoVM *photoVM;
 
 @end
 

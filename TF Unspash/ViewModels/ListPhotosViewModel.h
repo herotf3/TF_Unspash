@@ -5,9 +5,10 @@
 
 #import <Foundation/Foundation.h>
 
-@protocol ListPhotosViewModelsDelegate  <NSObject>
--(void) onFetching;
--(void) didFetchCompleted;
+@protocol ListPhotosViewModelsDelegate <NSObject>
+- (void)onFetching;
+
+- (void)didFetchCompleted;
 @end
 
 @class ListPhotosViewController;
@@ -15,15 +16,15 @@
 
 @interface ListPhotosViewModel : NSObject
 
-@property (nonatomic, weak, nullable) id<ListPhotosViewModelsDelegate> delegate;
+@property(nonatomic, weak, nullable) id <ListPhotosViewModelsDelegate> delegate;
 
 
-- (instancetype _Nonnull )initWithDelegate:(id <ListPhotosViewModelsDelegate> _Nullable)delegate;
+- (instancetype _Nonnull)initWithDelegate:(id <ListPhotosViewModelsDelegate> _Nullable)delegate;
 
-+ (instancetype _Nonnull )modelWithDelegate:(id <ListPhotosViewModelsDelegate> _Nullable)delegate;
++ (instancetype _Nonnull)modelWithDelegate:(id <ListPhotosViewModelsDelegate> _Nullable)delegate;
 
 
 - (void)fetchData;
 
--(NSArray <USPhotoVM*>*)photoViewModels;
+- (NSArray <USPhotoVM *> *)photoViewModels;
 @end

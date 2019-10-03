@@ -12,16 +12,17 @@
 
 @interface UnsplashEndPoint ()
 @property(nonatomic, copy) NSString *requestMethod;
-@property(nonatomic, copy) NSString * routePath;
-@property (nonatomic, strong) NSMutableDictionary * header;
+@property(nonatomic, copy) NSString *routePath;
+@property(nonatomic, strong) NSMutableDictionary *header;
 @property(nonatomic, strong) NSMutableURLRequest *request;
-@property(nonatomic, strong) NSURLComponents * URLComponents;
+@property(nonatomic, strong) NSURLComponents *URLComponents;
 @end
 
 @implementation UnsplashEndPoint {
 
 }
 #pragma  mark - Init
+
 - (instancetype)initWithEndPoint:(enum EndPoint)endPointRequest {
     self = [super init];
     if (self) {
@@ -54,11 +55,11 @@
 - (void)setEndPointRequest:(enum EndPoint)endPointRequest {
     _endPointRequest = endPointRequest;
     // setup all needed info for a specific request endpoint
-    self.header = [NSMutableDictionary dictionaryWithDictionary: @{
-            @"Authorization":[NSString stringWithFormat:@"Client-ID %@",ACCESS_KEY]
-    }] ;
+    self.header = [NSMutableDictionary dictionaryWithDictionary:@{
+            @"Authorization": [NSString stringWithFormat:@"Client-ID %@", ACCESS_KEY]
+    }];
 
-    switch (endPointRequest){
+    switch (endPointRequest) {
         case UnsplashEndPointGetPhotos:
             self.requestMethod = GET;
             self.routePath = @"/photos";
@@ -66,12 +67,13 @@
 }
 
 #pragma mark - Getter
+
 - (NSString *)method {
     return self.requestMethod;
 }
 
 - (NSString *)absolutePath {
-    return [NSString stringWithFormat:@"%@%@",UnsplashRootURL,self.routePath];
+    return [NSString stringWithFormat:@"%@%@", UnsplashRootURL, self.routePath];
 }
 
 - (NSMutableDictionary *)httpHeader {
@@ -79,6 +81,7 @@
 }
 
 #pragma mark - Functions
+
 - (NSData *)httpBodyForParameters:(NSDictionary *)parameters {
     NSMutableArray *parameterArray = [NSMutableArray array];
 
@@ -109,11 +112,11 @@
     // Build URL request
     self.URLComponents = [NSURLComponents componentsWithString:self.absolutePath];
     // Add url parameters
-    if (self.urlParameter){
+    if (self.urlParameter) {
         // set url query into url component
         NSMutableArray<NSURLQueryItem *> *queryItems = [NSMutableArray new];
-        for (NSString * name in self.urlParameter ){
-            [queryItems addObject:[NSURLQueryItem queryItemWithName: name value: _urlParameter[name]]];
+        for (NSString *name in self.urlParameter) {
+            [queryItems addObject:[NSURLQueryItem queryItemWithName:name value:_urlParameter[name]]];
         }
 
         self.URLComponents.queryItems = queryItems;
@@ -124,8 +127,8 @@
     [_request setHTTPMethod:self.method];
 
     // Add body parameter
-    if (self.parameter){
-        [_request setHTTPBody:[self httpBodyForParameters: self.parameter]];
+    if (self.parameter) {
+        [_request setHTTPBody:[self httpBodyForParameters:self.parameter]];
     }
 
     return self.request;
