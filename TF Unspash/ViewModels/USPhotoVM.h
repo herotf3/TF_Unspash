@@ -34,4 +34,6 @@
 - (NSString *)totalLikeOfUser;
 
 - (NSString *)totalUserPhoto;
+
+- (BOOL)isCurated;
 @end

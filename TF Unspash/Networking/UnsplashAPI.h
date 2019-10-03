@@ -24,4 +24,8 @@
      withNumberPhotoPerPage:(NSInteger)nPerPage orderBy:(NSString *)orderBy
                  completion:(void (^)(NSArray *photos, NSString *errorMsg))completion;
 
++ (void)getListCuratedPhotosInPage:(NSInteger)page
+     withNumberPhotoPerPage:(NSInteger)nPerPage orderBy:(NSString *)orderBy
+                 completion:(void (^)(NSArray *photos, NSString *errorMsg))completion;
+
 @end

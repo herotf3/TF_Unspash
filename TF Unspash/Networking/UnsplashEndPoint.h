@@ -7,7 +7,8 @@
 
 
 enum EndPoint {
-    UnsplashEndPointGetPhotos
+    UnsplashEndPointGetPhotos,
+    UnsplashEndPointGetCuratedPhotos,
 };
 
 @interface UnsplashEndPoint : NSObject

@@ -33,7 +33,7 @@
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="DTp-lK-Vdi">
                                 <rect key="frame" x="0.0" y="80" width="375" height="587"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                <collectionViewLayout key="collectionViewLayout" id="aCV-qf-Vgi" customClass="WaterFallLayout"/>
+                                <collectionViewLayout key="collectionViewLayout" id="61q-ea-6Ln" customClass="WaterFallLayout"/>
                                 <cells/>
                             </collectionView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Uj4-Zg-tl1">
@@ -56,7 +56,18 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="bFO-lT-b45"/>
                     </view>
-                    <navigationItem key="navigationItem" id="YlV-W7-nVu"/>
+                    <navigationItem key="navigationItem" id="YlV-W7-nVu">
+                        <barButtonItem key="rightBarButtonItem" style="plain" id="BBm-zi-rDm">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="ZoF-10-TRN">
+                                <rect key="frame" x="276" y="7" width="83" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="increseCol"/>
+                                <connections>
+                                    <action selector="onActionIncreaseColumn:" destination="ZTa-Pv-Mq2" eventType="touchUpInside" id="aso-mL-kSc"/>
+                                </connections>
+                            </button>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="clvPhotos" destination="DTp-lK-Vdi" id="lm5-zc-gxb"/>
                     </connections>

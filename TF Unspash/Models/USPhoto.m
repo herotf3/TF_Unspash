@@ -51,6 +51,9 @@ USPhoto *_Nullable USPhotoFromJSON(NSString *json, NSStringEncoding encoding, NS
     return USPhotoFromData([json dataUsingEncoding:encoding], error);
 }
 
+@interface USPhoto ()
+@end
+
 @implementation USPhoto
 + (NSDictionary<NSString *, NSString *> *)properties {
     static NSDictionary<NSString *, NSString *> *properties;
@@ -91,6 +94,7 @@ USPhoto *_Nullable USPhotoFromJSON(NSString *json, NSStringEncoding encoding, NS
         _urls = [USUrls fromJSONDictionary:(id) _urls];
         _links = [USPhotoLinks fromJSONDictionary:(id) _links];
         _user = [USUser fromJSONDictionary:(id) _user];
+        _isCurated = NO;
     }
     return self;
 }

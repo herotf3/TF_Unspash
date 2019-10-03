@@ -75,4 +75,8 @@
 - (NSString *)totalUserPhoto {
     return @(self.photo.user.totalPhotos).stringValue;
 }
+
+- (BOOL)isCurated {
+    return [self.photo isCurated];
+}
 @end

@@ -39,6 +39,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, assign) BOOL isLikedByUser;
 @property(nonatomic, copy) NSArray *currentUserCollections;
 @property(nonatomic, strong) USUser *user;
+@property (nonatomic, assign) BOOL isCurated;
 
 + (instancetype)fromJSONDictionary:(NSDictionary *)dict;
 

@@ -72,11 +72,13 @@
 
 - (void)prepareLayout {
     [super prepareLayout];
-
-    if (self.attributeCache.count != 0 || !self.collectionView) {
-        // Only calculate layout attribute when if cache is empty and collectionView exits
+    NSLog(@"Prepare layout of water fall layout");
+//    NSInteger nItem = [self.collectionView numberOfItemsInSection:0];
+//    if ((self.attributeCache.count != 0 && self.attributeCache.count == nItem) || !self.collectionView) {
+//        return;
+//    }
+    if (!self.collectionView)
         return;
-    }
 
     CGFloat colWidth = _contentWidth / self.numberOfColumn;
     CGFloat xOffsets[self.numberOfColumn];
@@ -89,6 +91,7 @@
         yOffsets[i] = 0;
 
     NSInteger col = 0;
+    [self.attributeCache removeAllObjects];
     // Frame calculation for all item
     for (int i = 0; i < [self.collectionView numberOfItemsInSection:0]; i++) {
         NSIndexPath *indexPath = [NSIndexPath indexPathForItem:i inSection:0];
@@ -113,8 +116,21 @@
         _contentHeight = MAX(_contentHeight, CGRectGetMaxY(frame));
         yOffsets[col] = yOffsets[col] + height;
 
-        col = (col < self.numberOfColumn - 1) ? (col + 1) : 0;
+        //col = (col < self.numberOfColumn - 1) ? (col + 1) : 0;
+        //Get column has min offset instead of just pick the next column
+        col = [self getColumnHasMinOffsetIn: yOffsets];
+
     }
+}
+
+- (NSInteger)getColumnHasMinOffsetIn:(CGFloat[]) offsets {
+    int min=0;
+
+    for (int i=1;i< self.numberOfColumn;i++ ){
+        if (offsets[min]>offsets[i])
+            min = i;
+    }
+    return min;
 }
 
 //return layout information for all items whose view intersects the specified rectangle

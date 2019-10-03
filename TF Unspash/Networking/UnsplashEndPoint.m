@@ -63,6 +63,11 @@
         case UnsplashEndPointGetPhotos:
             self.requestMethod = GET;
             self.routePath = @"/photos";
+            break;
+        case UnsplashEndPointGetCuratedPhotos:
+            self.requestMethod = GET;
+            self.routePath = @"/photos/curated";
+            break;
     }
 }
 

@@ -4,6 +4,7 @@
 //
 
 #import <SDWebImage/UIImageView+WebCache.h>
+#import <Photos/Photos.h>
 #import "ListPhotosViewController.h"
 #import "PhotoCollectionViewCell.h"
 #import "WaterFallLayout.h"
@@ -13,10 +14,10 @@
 
 #define PHOTO_CELL_ID @"PhotoCollectionCellId"
 
-#define NUMBER_OF_PHOTO_COLUMNS 2
-
 @interface ListPhotosViewController () <UICollectionViewDataSource, UICollectionViewDelegate, WaterFallLayoutDelegate, ListPhotosViewModelsDelegate>
 @property(weak, nonatomic) IBOutlet UICollectionView *clvPhotos;
+
+@property(strong, nonatomic) NSArray* photos;
 
 @end
 
@@ -46,36 +47,50 @@
 #pragma mark  - Collection view data source
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return [self.listPhotoVM.photoViewModels count];
+    NSLog(@"number item:%ld",self.photos.count);
+    return [self.photos count];
 }
 
 - (__kindof UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     PhotoCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:PHOTO_CELL_ID forIndexPath:indexPath];
 
-    [cell bindDataWith:self.listPhotoVM.photoViewModels[indexPath.row]];
+    if ([_photos[indexPath.row] isKindOfClass:USPhotoVM.class ]){
+        [cell bindWithPhotoVM:self.photos[indexPath.row]];
+    }else if ([_photos[indexPath.row] isKindOfClass:PHAsset.class ]){
+        [cell bindWithPHAsset:self.photos[indexPath.row]];
+    }
+
     return cell;
 }
 
 #pragma mark - Collection view delegate
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-    PhotoDetailViewController *detailVC = [PhotoDetailViewController new];
-    detailVC.photoVM = self.listPhotoVM.photoViewModels[indexPath.row];
+    if ([_photos[indexPath.row] isKindOfClass:USPhotoVM.class]){
+        PhotoDetailViewController *detailVC = [PhotoDetailViewController new];
+        detailVC.photoVM = self.photos[indexPath.row];
 
-    [self.navigationController pushViewController:detailVC animated:YES];
+        [self.navigationController pushViewController:detailVC animated:YES];
+    }
 }
 
 
 #pragma mark - Water fall layout delegate
 
 - (CGSize)collectionView:(UICollectionView *)collectionView sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
-    USPhotoVM *photoVM = self.listPhotoVM.photoViewModels[indexPath.row];
-    return CGSizeMake(photoVM.photo.width, photoVM.photo.height);
+    if ([_photos[indexPath.row] isKindOfClass:USPhotoVM.class ]){
+        USPhotoVM *photoVM = self.photos[indexPath.row];
+        return CGSizeMake(photoVM.photo.width, photoVM.photo.height);
+    }else if ([_photos[indexPath.row] isKindOfClass:PHAsset.class ]){
+        PHAsset *asset = _photos[indexPath.row];
+        return CGSizeMake(asset.pixelWidth, asset.pixelHeight);
+    }
+    return CGSizeZero;
 }
 
 
 - (NSInteger)waterFallLayoutNumberOfColumns {
-    return NUMBER_OF_PHOTO_COLUMNS;
+    return numberOfColumn;
 }
 
 #pragma mark - List Photos VM Delegate
@@ -85,11 +100,21 @@
 }
 
 - (void)didFetchCompleted {
+    self.photos = [NSArray arrayWithArray:self.listPhotoVM.photoViewModels];
+    
     dispatch_async(dispatch_get_main_queue(), ^{
         [self hideLoading];
         [self.clvPhotos reloadData];
+        NSLog(@"-----Reload data");
     });
 }
 
+- (IBAction)onActionIncreaseColumn:(id)sender {
+    numberOfColumn++;
+    [UIView animateWithDuration:0.2 animations:^{
+        [self.view layoutIfNeeded];
+        [self.clvPhotos reloadData];
+    }];
+}
 
 @end

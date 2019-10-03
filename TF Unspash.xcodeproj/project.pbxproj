@@ -510,6 +510,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.thien.TF-Unsplash";
 				PRODUCT_NAME = "TF Unsplash";
 				TARGETED_DEVICE_FAMILY = "1,2";
+				USER_HEADER_SEARCH_PATHS = "\"${PROJECT_DIR}/Pods\"/**";
 			};
 			name = Debug;
 		};
@@ -529,6 +530,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.thien.TF-Unsplash";
 				PRODUCT_NAME = "TF Unsplash";
 				TARGETED_DEVICE_FAMILY = "1,2";
+				USER_HEADER_SEARCH_PATHS = "\"${PROJECT_DIR}/Pods\"/**";
 			};
 			name = Release;
 		};

@@ -13,8 +13,11 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface PhotoCollectionViewCell : UICollectionViewCell
 @property(weak, nonatomic) IBOutlet UIImageView *imageView;
+@property (weak, nonatomic) IBOutlet UIImageView *iconTypeImv;
 
-- (void)bindDataWith:(USPhotoVM *)presenter;
+- (void)bindWithPhotoVM:(USPhotoVM *)presenter;
+
+- (void)bindWithPHAsset:(PHAsset *)asset;
 @end
 
 NS_ASSUME_NONNULL_END
