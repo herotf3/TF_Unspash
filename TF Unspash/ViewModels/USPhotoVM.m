@@ -7,6 +7,7 @@
 #import <UIKit/UIKit.h>
 #import "USPhotoVM.h"
 #import "USPhoto.h"
+#import "UIImageView+WebCache.h"
 
 
 @implementation USPhotoVM {
@@ -25,10 +26,26 @@
     return [[self alloc] initWithPhoto:photo];
 }
 
-- (NSURL *)URLForDisplayInThumb {
+#pragma mark - Override methods of super class
+
+- (NSURL *)photoURLForDisplayInThumb {
     return [[NSURL alloc] initWithString:self.photo.urls.thumb];
 }
 
+-(UIImage *)iconForType {
+    return nil;
+}
+
+- (void)setImageIntoImageView:(UIImageView *)imageView {
+    [imageView sd_setImageWithURL:[[NSURL alloc] initWithString:self.photo.urls.thumb]];
+}
+
+- (CGSize)photoSize {
+    return CGSizeMake(self.photo.width,self.photo.height);
+}
+
+
+// Supplying data
 - (NSURL *)URLForDisplayInLarge {
     return [[NSURL alloc] initWithString:self.photo.urls.full];
 }
@@ -76,7 +93,4 @@
     return @(self.photo.user.totalPhotos).stringValue;
 }
 
-- (BOOL)isCurated {
-    return [self.photo isCurated];
-}
 @end

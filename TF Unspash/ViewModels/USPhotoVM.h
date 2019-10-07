@@ -4,18 +4,17 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "BasePhotoVM.h"
 
 @class USPhoto;
 
 
-@interface USPhotoVM : NSObject
+@interface USPhotoVM : BasePhotoVM
 @property(nonatomic, strong) USPhoto *photo;
 
 - (instancetype)initWithPhoto:(USPhoto *)photo;
 
 + (instancetype)photoVMWithPhoto:(USPhoto *)photo;
-
-- (NSURL *)URLForDisplayInThumb;
 
 - (NSURL *)URLForDisplayInLarge;
 
@@ -35,5 +34,4 @@
 
 - (NSString *)totalUserPhoto;
 
-- (BOOL)isCurated;
 @end

@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		1B3EE0D4255702B4580134D2 /* ListPhotosViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B3EE105F9693A3547BF3F18 /* ListPhotosViewController.m */; };
 		1B3EE2F98873A3C59CC93DCE /* ListPhotosViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B3EEF47540C80E532914A3A /* ListPhotosViewModel.m */; };
+		1B3EE33C01050DE3914EAA6E /* BasePhotoVM.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B3EE0B94E7167DCFBFC32C6 /* BasePhotoVM.m */; };
 		1B3EE62B34A0811D6FFF3DD7 /* USPhoto.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B3EEDF3AFF11A76ADB7E064 /* USPhoto.m */; };
 		1B3EE6D6380F5541FF28B75B /* UnsplashAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B3EE42EEC576B0B19121BA0 /* UnsplashAPI.m */; };
 		1B3EE9D784D62715C8C8B7C9 /* AppConfigs.h in Resources */ = {isa = PBXBuildFile; fileRef = 1B3EEF1B2D91B73308A24A41 /* AppConfigs.h */; };
@@ -16,6 +17,7 @@
 		1B3EECC620318664E8171DBB /* USPhotoVM.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B3EE44C2CC248D308FA5655 /* USPhotoVM.m */; };
 		1B3EECED01450395AF823680 /* UIViewController+ProcessView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B3EED8C6AAE1D92D78F36B9 /* UIViewController+ProcessView.m */; };
 		1B3EEED506C0784AAAEE0C70 /* CircleImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B3EE166A9C6B6F85A80F135 /* CircleImageView.m */; };
+		1B3EEF085A51EED79AC8EED4 /* LocalPhotoVM.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B3EE0AA5D8580CD1B072E4A /* LocalPhotoVM.m */; };
 		1B3EEFAE765BD58F321D414F /* UnsplashEndPoint.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B3EEA9E27C7ED41DD603507 /* UnsplashEndPoint.m */; };
 		B2075FCCA38D6251D6F2005F /* libPods-TF Unspash.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3BA2DDECE5CEACC3A0600FC3 /* libPods-TF Unspash.a */; };
 		DB0FAB32234440D600332D12 /* WaterFallLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = DB0FAB31234440D600332D12 /* WaterFallLayout.m */; };
@@ -35,6 +37,8 @@
 /* Begin PBXFileReference section */
 		12F15F33BE15073DCEB6610F /* Pods-TF Unspash.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TF Unspash.release.xcconfig"; path = "Target Support Files/Pods-TF Unspash/Pods-TF Unspash.release.xcconfig"; sourceTree = "<group>"; };
 		1B3EE09F4F8371FCB846314F /* UnsplashEndPoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UnsplashEndPoint.h; sourceTree = "<group>"; };
+		1B3EE0AA5D8580CD1B072E4A /* LocalPhotoVM.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocalPhotoVM.m; sourceTree = "<group>"; };
+		1B3EE0B94E7167DCFBFC32C6 /* BasePhotoVM.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BasePhotoVM.m; sourceTree = "<group>"; };
 		1B3EE105F9693A3547BF3F18 /* ListPhotosViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListPhotosViewController.m; sourceTree = "<group>"; };
 		1B3EE165185AC1A9D95DA4FE /* CircleImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CircleImageView.h; sourceTree = "<group>"; };
 		1B3EE166A9C6B6F85A80F135 /* CircleImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CircleImageView.m; sourceTree = "<group>"; };
@@ -43,9 +47,11 @@
 		1B3EE42EEC576B0B19121BA0 /* UnsplashAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UnsplashAPI.m; sourceTree = "<group>"; };
 		1B3EE44C2CC248D308FA5655 /* USPhotoVM.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = USPhotoVM.m; sourceTree = "<group>"; };
 		1B3EE4FF7EDAB252EEA64A75 /* ListPhotosViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListPhotosViewModel.h; sourceTree = "<group>"; };
+		1B3EE77510D4EEBB96067D57 /* LocalPhotoVM.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocalPhotoVM.h; sourceTree = "<group>"; };
 		1B3EEA9E27C7ED41DD603507 /* UnsplashEndPoint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UnsplashEndPoint.m; sourceTree = "<group>"; };
 		1B3EEAC77F517AF7F54D3B54 /* USPhotoVM.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = USPhotoVM.h; sourceTree = "<group>"; };
 		1B3EEB307BD103B42C1596C8 /* UIViewController+ProcessView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+ProcessView.h"; sourceTree = "<group>"; };
+		1B3EEBE71FF42C2F4B77A792 /* BasePhotoVM.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BasePhotoVM.h; sourceTree = "<group>"; };
 		1B3EEC91E1C54F3806702B10 /* ListPhotosViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListPhotosViewController.h; sourceTree = "<group>"; };
 		1B3EED8C6AAE1D92D78F36B9 /* UIViewController+ProcessView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+ProcessView.m"; sourceTree = "<group>"; };
 		1B3EEDC47B8117BB5D69E00F /* SupportFunctions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SupportFunctions.h; sourceTree = "<group>"; };
@@ -105,6 +111,10 @@
 				1B3EEAC77F517AF7F54D3B54 /* USPhotoVM.h */,
 				1B3EEF47540C80E532914A3A /* ListPhotosViewModel.m */,
 				1B3EE4FF7EDAB252EEA64A75 /* ListPhotosViewModel.h */,
+				1B3EE0B94E7167DCFBFC32C6 /* BasePhotoVM.m */,
+				1B3EEBE71FF42C2F4B77A792 /* BasePhotoVM.h */,
+				1B3EE0AA5D8580CD1B072E4A /* LocalPhotoVM.m */,
+				1B3EE77510D4EEBB96067D57 /* LocalPhotoVM.h */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -359,6 +369,8 @@
 				DB0FAB362344997C00332D12 /* PhotoDetailViewController.m in Sources */,
 				1B3EE2F98873A3C59CC93DCE /* ListPhotosViewModel.m in Sources */,
 				1B3EEED506C0784AAAEE0C70 /* CircleImageView.m in Sources */,
+				1B3EE33C01050DE3914EAA6E /* BasePhotoVM.m in Sources */,
+				1B3EEF085A51EED79AC8EED4 /* LocalPhotoVM.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

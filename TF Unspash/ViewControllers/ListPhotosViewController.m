@@ -17,7 +17,7 @@
 @interface ListPhotosViewController () <UICollectionViewDataSource, UICollectionViewDelegate, WaterFallLayoutDelegate, ListPhotosViewModelsDelegate>
 @property(weak, nonatomic) IBOutlet UICollectionView *clvPhotos;
 
-@property(strong, nonatomic) NSArray* photos;
+@property(strong, nonatomic) NSArray<BasePhotoVM*>* photos;
 
 @end
 
@@ -52,13 +52,9 @@
 }
 
 - (__kindof UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-    PhotoCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:PHOTO_CELL_ID forIndexPath:indexPath];
 
-    if ([_photos[indexPath.row] isKindOfClass:USPhotoVM.class ]){
-        [cell bindWithPhotoVM:self.photos[indexPath.row]];
-    }else if ([_photos[indexPath.row] isKindOfClass:PHAsset.class ]){
-        [cell bindWithPHAsset:self.photos[indexPath.row]];
-    }
+    PhotoCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:PHOTO_CELL_ID forIndexPath:indexPath];
+    [cell bindWithPhotoVM:self.photos[indexPath.row]];
 
     return cell;
 }
@@ -78,14 +74,10 @@
 #pragma mark - Water fall layout delegate
 
 - (CGSize)collectionView:(UICollectionView *)collectionView sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
-    if ([_photos[indexPath.row] isKindOfClass:USPhotoVM.class ]){
-        USPhotoVM *photoVM = self.photos[indexPath.row];
-        return CGSizeMake(photoVM.photo.width, photoVM.photo.height);
-    }else if ([_photos[indexPath.row] isKindOfClass:PHAsset.class ]){
-        PHAsset *asset = _photos[indexPath.row];
-        return CGSizeMake(asset.pixelWidth, asset.pixelHeight);
-    }
-    return CGSizeZero;
+
+    CGSize imageSize = [self.photos[indexPath.row] photoSize];
+    return imageSize;
+
 }
 
 

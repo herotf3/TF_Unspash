@@ -9,15 +9,16 @@
 #import <UIKit/UIKit.h>
 #import "USPhotoVM.h"
 
+@class BasePhotoVM;
+
 NS_ASSUME_NONNULL_BEGIN
 
 @interface PhotoCollectionViewCell : UICollectionViewCell
 @property(weak, nonatomic) IBOutlet UIImageView *imageView;
 @property (weak, nonatomic) IBOutlet UIImageView *iconTypeImv;
 
-- (void)bindWithPhotoVM:(USPhotoVM *)presenter;
+- (void)bindWithPhotoVM:(BasePhotoVM *)photoVM;
 
-- (void)bindWithPHAsset:(PHAsset *)asset;
 @end
 
 NS_ASSUME_NONNULL_END

@@ -9,6 +9,8 @@
 #import "UnsplashAPI.h"
 #import "SupportFunctions.h"
 #import "ListPhotosViewController.h"
+#import "LocalPhotoVM.h"
+#import "BasePhotoVM.h"
 
 #define N_PHOTO_PER_PAGE 24
 
@@ -16,7 +18,7 @@
 
 @interface ListPhotosViewModel ()
 
-@property(nonatomic, strong) NSMutableArray *photos;
+@property(nonatomic, strong) NSMutableArray<BasePhotoVM*> *photos;
 @property (nonatomic, strong) dispatch_queue_t serialAccessQueue;
 
 @property(nonatomic) NSInteger page;
@@ -82,8 +84,8 @@
                 self.fetchResult = [PHAsset fetchAssetsWithOptions:allPhotoOption];
 
                 dispatch_async(self.serialAccessQueue, ^{
-                    for (int i=0;i<_fetchResult.count;i++){
-                        [self.photos addObject:_fetchResult[i]];
+                    for (int i=0;i<self.fetchResult.count;i++){
+                        [self.photos addObject: [[LocalPhotoVM alloc] initWithAsset:self.fetchResult[i]]];
                     }
                     [self.delegate didFetchCompleted];
                 });
@@ -94,39 +96,7 @@
     
 }
 
--(void) getCuratedPhotos{
-    //Get curated photos
-    [UnsplashAPI getListCuratedPhotosInPage:self.page withNumberPhotoPerPage:N_PHOTO_PER_PAGE orderBy:ORDER_LATEST completion:^(NSArray *photos, NSString *errorMsg) {
-        if (errorMsg) {
-            return;
-        }
-        if (photos) {
-            NSArray * tempArr;
-            tempArr = map(photos, ^id(USPhoto *value) {
-                return [USPhotoVM photoVMWithPhoto:value];
-            });
-
-            dispatch_async(self.serialAccessQueue, ^{
-                [self.photos addObjectsFromArray:tempArr];
-                [self.delegate didFetchCompleted];
-            });
-        }
-
-
-    }];
-}
-
-//-(NSArray<NSIndexPath *> *) calculateIndexPathsToReloadFrom:(NSArray*) newPhotos {
-//    NSInteger startIndex = self.photos.count - newPhotos.count;
-//    NSInteger endIndex = startIndex + newPhotos.count;
-//    NSMutableArray *indexPaths = [NSMutableArray new];
-//    for (NSInteger i=startIndex;i<endIndex; i++){
-//        [indexPaths addObject:[NSIndexPath indexPathForRow:i inSection:0]];
-//    }
-//    return indexPaths;
-//}
-
-- (NSArray <USPhotoVM *> *)photoViewModels {
+- (NSArray <BasePhotoVM *> *)photoViewModels {
     return _photos;
 }
 

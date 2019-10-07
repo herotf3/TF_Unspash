@@ -11,10 +11,11 @@
 #import <Photos/Photos.h>
 #import "PhotoCollectionViewCell.h"
 #import "UIView+WebCache.h"
+#import "BasePhotoVM.h"
 
 @interface PhotoCollectionViewCell()
-@property (nonatomic, copy) NSString* representedAssetIdentifier;
-@property (nonatomic, strong) UIImage* iconInDevice;
+
+@property (nonatomic, strong) BasePhotoVM* photoVM;
 
 @end
 
@@ -23,15 +24,6 @@
 - (void)awakeFromNib {
     [super awakeFromNib];
     // Initialization code
-}
-
-- (void)bindWithPhotoVM:(USPhotoVM *)presenter {
-    if (presenter==NULL){
-        NSLog(@"photo item null!!!!");
-    }
-
-    [self.imageView sd_setImageWithURL:[presenter URLForDisplayInThumb] placeholderImage:nil];
-
     [self setBackgroundColor:UIColor.lightGrayColor];
 }
 
@@ -42,30 +34,46 @@
     self.iconTypeImv.image = nil;
 }
 
-
-- (void)bindWithPHAsset:(PHAsset*)asset {
-    self.representedAssetIdentifier = asset.localIdentifier;
-    self.iconTypeImv.image = [UIImage imageNamed:@"smartphone"];
-    
-    PHImageRequestOptions * options = [PHImageRequestOptions new];
-    [options setSynchronous:NO];
-    [PHImageManager.defaultManager requestImageForAsset:asset targetSize:PHImageManagerMaximumSize contentMode:PHImageContentModeDefault options:options
-                                          resultHandler:^(UIImage *image, NSDictionary *info)
-    {
-        if (image && [asset.localIdentifier isEqualToString:self.representedAssetIdentifier] ){
-            self.imageView.image = image;
-        }
-
-    }];
-
-
-}
-
-- (UIImage *)iconInDevice{
-    if (_iconInDevice==NULL){
-        _iconInDevice = [UIImage imageNamed:@"smartphone"];
+- (void)bindWithPhotoVM:(BasePhotoVM *)viewModel {
+    if (viewModel==NULL){
+        NSLog(@"photo view model is null !");
+        return;
     }
-    return _iconInDevice;
+
+//    [self.imageView sd_setImageWithURL:[viewModel photoURLForDisplayInThumb] placeholderImage:nil];
+    [viewModel setImageIntoImageView:self.imageView];
+    self.iconTypeImv.image = [viewModel iconForType];
 }
+
+//- (void)bindWithPHAsset:(PHAsset*)asset {
+//    self.representedAssetIdentifier = asset.localIdentifier;
+//    self.iconTypeImv.image = [UIImage imageNamed:@"smartphone"];
+//
+//    PHImageRequestOptions * options = [PHImageRequestOptions new];
+////    [options setSynchronous:NO];
+////    [PHImageManager.defaultManager requestImageForAsset:asset targetSize:PHImageManagerMaximumSize contentMode:PHImageContentModeDefault options:options
+////                                          resultHandler:^(UIImage *image, NSDictionary *info)
+////    {
+////        if (image && [asset.localIdentifier isEqualToString:self.representedAssetIdentifier] ){
+////            self.imageView.image = image;
+////        }
+////    }];
+//
+//    [asset requestContentEditingInputWithOptions:[PHContentEditingInputRequestOptions new]
+//                               completionHandler:^(PHContentEditingInput *contentEditingInput, NSDictionary *info)
+//    {
+//        if (contentEditingInput){
+//            NSURL * URL = contentEditingInput.fullSizeImageURL;
+//            [self.imageView sd_setImageWithURL:URL];
+//        }
+//    }];
+//
+//    [PHImageManager.defaultManager requestImageDataForAsset:asset options:options
+//                                              resultHandler:^(NSData *imageData, NSString *dataUTI, UIImageOrientation orientation, NSDictionary *info)
+//    {
+//        NSLog(@"image asset data info%@",info);
+//        NSLog(@"info url: %@", info[@"PHImageFileDataKey"]);
+//    }];
+//}
 
 @end

@@ -13,6 +13,7 @@
 
 @class ListPhotosViewController;
 @class USPhotoVM;
+@class BasePhotoVM;
 
 @interface ListPhotosViewModel : NSObject
 
@@ -26,5 +27,5 @@
 
 - (void)fetchData;
 
-- (NSArray <USPhotoVM *> *)photoViewModels;
+- (NSArray <BasePhotoVM *> *)photoViewModels;
 @end
