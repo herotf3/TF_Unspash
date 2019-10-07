@@ -15,7 +15,7 @@
 
 @interface PhotoCollectionViewCell()
 
-@property (nonatomic, strong) BasePhotoVM* photoVM;
+@property (nonatomic, weak) BasePhotoVM* photoVM;
 
 @end
 
@@ -29,6 +29,8 @@
 
 - (void)prepareForReuse {
     [super prepareForReuse];
+    [self.photoVM prepareForReuse];
+
     [self.imageView sd_cancelCurrentImageLoad];
     self.imageView.image = nil;
     self.iconTypeImv.image = nil;
@@ -39,41 +41,15 @@
         NSLog(@"photo view model is null !");
         return;
     }
+    self.photoVM = viewModel;
+    viewModel.photoCell = self;
 
-//    [self.imageView sd_setImageWithURL:[viewModel photoURLForDisplayInThumb] placeholderImage:nil];
     [viewModel setImageIntoImageView:self.imageView];
     self.iconTypeImv.image = [viewModel iconForType];
 }
 
-//- (void)bindWithPHAsset:(PHAsset*)asset {
-//    self.representedAssetIdentifier = asset.localIdentifier;
-//    self.iconTypeImv.image = [UIImage imageNamed:@"smartphone"];
-//
-//    PHImageRequestOptions * options = [PHImageRequestOptions new];
-////    [options setSynchronous:NO];
-////    [PHImageManager.defaultManager requestImageForAsset:asset targetSize:PHImageManagerMaximumSize contentMode:PHImageContentModeDefault options:options
-////                                          resultHandler:^(UIImage *image, NSDictionary *info)
-////    {
-////        if (image && [asset.localIdentifier isEqualToString:self.representedAssetIdentifier] ){
-////            self.imageView.image = image;
-////        }
-////    }];
-//
-//    [asset requestContentEditingInputWithOptions:[PHContentEditingInputRequestOptions new]
-//                               completionHandler:^(PHContentEditingInput *contentEditingInput, NSDictionary *info)
-//    {
-//        if (contentEditingInput){
-//            NSURL * URL = contentEditingInput.fullSizeImageURL;
-//            [self.imageView sd_setImageWithURL:URL];
-//        }
-//    }];
-//
-//    [PHImageManager.defaultManager requestImageDataForAsset:asset options:options
-//                                              resultHandler:^(NSData *imageData, NSString *dataUTI, UIImageOrientation orientation, NSDictionary *info)
-//    {
-//        NSLog(@"image asset data info%@",info);
-//        NSLog(@"info url: %@", info[@"PHImageFileDataKey"]);
-//    }];
-//}
+- (void)setImage:(UIImage *)image {
+    self.imageView.image = image;
+}
 
 @end

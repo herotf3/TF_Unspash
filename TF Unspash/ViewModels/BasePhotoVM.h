@@ -4,17 +4,21 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "PhotoCollectionViewCell.h"
 
 @class UIImage;
 
 
+
 @interface BasePhotoVM : NSObject
+
+@property (nonatomic, weak) PhotoCollectionViewCell* photoCell;
 
 -(NSURL *) photoURLForDisplayInThumb;
 -(UIImage *) iconForType;
 
 
 - (void)setImageIntoImageView:(UIImageView *)imageView;
-
+- (void)prepareForReuse;
 - (CGSize)photoSize;
 @end

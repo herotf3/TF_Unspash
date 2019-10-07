@@ -17,6 +17,8 @@
 
 + (instancetype)vmWithAsset:(PHAsset *)asset;
 
+- (CGFloat)scale;
+
 +(NSCache<NSString*,UIImage*>*) imagesCache;
 
 

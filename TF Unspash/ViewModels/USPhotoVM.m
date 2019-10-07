@@ -8,6 +8,7 @@
 #import "USPhotoVM.h"
 #import "USPhoto.h"
 #import "UIImageView+WebCache.h"
+#import "UIColor+HexString.h"
 
 
 @implementation USPhotoVM {
@@ -28,10 +29,6 @@
 
 #pragma mark - Override methods of super class
 
-- (NSURL *)photoURLForDisplayInThumb {
-    return [[NSURL alloc] initWithString:self.photo.urls.thumb];
-}
-
 -(UIImage *)iconForType {
     return nil;
 }
@@ -44,9 +41,18 @@
     return CGSizeMake(self.photo.width,self.photo.height);
 }
 
+- (void)prepareForReuse {
+    [super prepareForReuse];
+}
 
-// Supplying data
-- (NSURL *)URLForDisplayInLarge {
+
+#pragma mark - Data for presentation
+
+- (NSURL *)photoURLForDisplayInThumb {
+    return [[NSURL alloc] initWithString:self.photo.urls.thumb];
+}
+
+- (NSURL *)photoURLForDisplayInLarge {
     return [[NSURL alloc] initWithString:self.photo.urls.full];
 }
 
@@ -93,4 +99,17 @@
     return @(self.photo.user.totalPhotos).stringValue;
 }
 
+- (UIImage *)photoPlaceHolder {
+    CGRect rect = CGRectMake(0, 0, 1, 1);
+
+    UIGraphicsBeginImageContext(rect.size);
+    CGContextRef context = UIGraphicsGetCurrentContext();
+    CGContextSetFillColorWithColor(context, [UIColor colorFromHexString:self.photo.color].CGColor);
+    CGContextFillRect(context, rect);
+
+    UIImage *placeHolder = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+
+    return placeHolder;
+}
 @end

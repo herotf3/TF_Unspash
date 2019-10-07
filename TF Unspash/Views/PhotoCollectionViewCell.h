@@ -7,7 +7,6 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "USPhotoVM.h"
 
 @class BasePhotoVM;
 
@@ -17,8 +16,11 @@ NS_ASSUME_NONNULL_BEGIN
 @property(weak, nonatomic) IBOutlet UIImageView *imageView;
 @property (weak, nonatomic) IBOutlet UIImageView *iconTypeImv;
 
+@property(nonatomic, copy) NSString *localAssetID;
+
 - (void)bindWithPhotoVM:(BasePhotoVM *)photoVM;
 
+- (void)setImage:(UIImage *)image;
 @end
 
 NS_ASSUME_NONNULL_END

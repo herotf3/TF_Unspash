@@ -16,7 +16,7 @@
 
 + (instancetype)photoVMWithPhoto:(USPhoto *)photo;
 
-- (NSURL *)URLForDisplayInLarge;
+- (NSURL *)photoURLForDisplayInLarge;
 
 - (UIImage *)placeHolderImage;
 
@@ -34,4 +34,5 @@
 
 - (NSString *)totalUserPhoto;
 
+- (UIImage *)photoPlaceHolder;
 @end

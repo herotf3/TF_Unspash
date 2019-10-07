@@ -10,7 +10,7 @@
 
 @interface LocalPhotoVM()
 @property(nonatomic, strong) PHImageRequestOptions *options;
-
+@property (nonatomic, assign) PHImageRequestID phImageRequestID;
 @end
 
 @implementation LocalPhotoVM {
@@ -33,6 +33,7 @@
     static NSCache<NSString *, UIImage *> * imagesCache = nil;
     if (!imagesCache){
         imagesCache = [[NSCache alloc] init];
+//        imagesCache.countLimit = 20;
     }
     return imagesCache;
 }
@@ -56,25 +57,33 @@
         return;
     }
 
-    // Cache miss
-    [PHImageManager.defaultManager requestImageForAsset:self.asset targetSize:PHImageManagerMaximumSize contentMode:PHImageContentModeDefault
+    self.photoCell.localAssetID = _asset.localIdentifier;
+    CGSize size = CGSizeMake(self.asset.pixelWidth* self.scale, self.asset.pixelHeight* self.scale);
+    // Cache missed, request image for asset
+    self.phImageRequestID = [PHImageManager.defaultManager requestImageForAsset:self.asset targetSize:size contentMode:PHImageContentModeDefault
                                                 options:self.options resultHandler:^(UIImage *image, NSDictionary *info)
     {
-        if (image){
-            imageView.image = image;
+        if ([self.photoCell.localAssetID isEqualToString:self.asset.localIdentifier] && image){
+            [self.photoCell setImage: image];
             [LocalPhotoVM.imagesCache setObject:image forKey:self.asset.localIdentifier];
         }
-
     }];
 
+}
+
+- (CGFloat)scale {
+    return 0.5;
+}
+
+- (void)prepareForReuse {
+    [PHImageManager.defaultManager cancelImageRequest: self.phImageRequestID];
 }
 
 - (CGSize)photoSize {
     return CGSizeMake(self.asset.pixelWidth, self.asset.pixelHeight);
 }
 
-
-- (PHImageRequestOptions *)options {
+    - (PHImageRequestOptions *)options {
     if (!_options){
         _options = [PHImageRequestOptions new];
     }

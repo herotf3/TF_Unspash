@@ -6,6 +6,9 @@
 #import <UIKit/UIKit.h>
 #import "BasePhotoVM.h"
 
+@interface BasePhotoVM()
+
+@end
 
 @implementation BasePhotoVM {
 
@@ -22,6 +25,11 @@
 }
 
 - (void)setImageIntoImageView:(UIImageView *)imageView {
+}
+
+/** Clear cache or reset any resource before binding from view model into view (cell)
+ * */
+- (void)prepareForReuse {
 }
 
 - (CGSize)photoSize {

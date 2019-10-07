@@ -10,15 +10,16 @@
 #import "WaterFallLayout.h"
 #import "UIViewController+ProcessView.h"
 #import "PhotoDetailViewController.h"
-#import "USPhoto.h"
+#import "CustomAnimatedTransitioning.h"
 
 #define PHOTO_CELL_ID @"PhotoCollectionCellId"
 
 @interface ListPhotosViewController () <UICollectionViewDataSource, UICollectionViewDelegate, WaterFallLayoutDelegate, ListPhotosViewModelsDelegate>
-@property(weak, nonatomic) IBOutlet UICollectionView *clvPhotos;
 
+@property(weak, nonatomic) IBOutlet UICollectionView *clvPhotos;
 @property(strong, nonatomic) NSArray<BasePhotoVM*>* photos;
 
+@property (strong, nonatomic) CustomAnimatedTransitioning * transition;
 @end
 
 @implementation ListPhotosViewController {
@@ -31,6 +32,8 @@
     [self setupCollectionView];
     self.listPhotoVM = [[ListPhotosViewModel alloc] initWithDelegate:self];
     [self.listPhotoVM fetchData];
+
+    self.transition = [CustomAnimatedTransitioning new];
 }
 
 - (void)setupCollectionView {
@@ -64,7 +67,7 @@
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     if ([_photos[indexPath.row] isKindOfClass:USPhotoVM.class]){
         PhotoDetailViewController *detailVC = [PhotoDetailViewController new];
-        detailVC.photoVM = self.photos[indexPath.row];
+        detailVC.photoVM = (USPhotoVM *) self.photos[indexPath.row];
 
         [self.navigationController pushViewController:detailVC animated:YES];
     }
@@ -108,5 +111,6 @@
         [self.clvPhotos reloadData];
     }];
 }
+
 
 @end

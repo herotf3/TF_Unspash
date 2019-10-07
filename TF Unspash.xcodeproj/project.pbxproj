@@ -8,8 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		1B3EE0D4255702B4580134D2 /* ListPhotosViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B3EE105F9693A3547BF3F18 /* ListPhotosViewController.m */; };
+		1B3EE2BE9682577E172713D4 /* CustomAnimatedTransitioning.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B3EED0F7B5483D331A2FFC1 /* CustomAnimatedTransitioning.m */; };
 		1B3EE2F98873A3C59CC93DCE /* ListPhotosViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B3EEF47540C80E532914A3A /* ListPhotosViewModel.m */; };
 		1B3EE33C01050DE3914EAA6E /* BasePhotoVM.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B3EE0B94E7167DCFBFC32C6 /* BasePhotoVM.m */; };
+		1B3EE3559E7CE8EF42228753 /* UIColor+HexString.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B3EE07120A695D2F74C31E6 /* UIColor+HexString.m */; };
 		1B3EE62B34A0811D6FFF3DD7 /* USPhoto.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B3EEDF3AFF11A76ADB7E064 /* USPhoto.m */; };
 		1B3EE6D6380F5541FF28B75B /* UnsplashAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B3EE42EEC576B0B19121BA0 /* UnsplashAPI.m */; };
 		1B3EE9D784D62715C8C8B7C9 /* AppConfigs.h in Resources */ = {isa = PBXBuildFile; fileRef = 1B3EEF1B2D91B73308A24A41 /* AppConfigs.h */; };
@@ -32,16 +34,20 @@
 		DB12B73C2341AE6B004CE43D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = DB12B73B2341AE6B004CE43D /* main.m */; };
 		DB12B749234214E6004CE43D /* PhotoCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DB12B747234214E6004CE43D /* PhotoCollectionViewCell.m */; };
 		DB12B74A234214E6004CE43D /* PhotoCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DB12B748234214E6004CE43D /* PhotoCollectionViewCell.xib */; };
+		DB8CE077234B4552006C0D20 /* FullViewPhotoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DB8CE076234B4551006C0D20 /* FullViewPhotoViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		12F15F33BE15073DCEB6610F /* Pods-TF Unspash.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TF Unspash.release.xcconfig"; path = "Target Support Files/Pods-TF Unspash/Pods-TF Unspash.release.xcconfig"; sourceTree = "<group>"; };
+		1B3EE07120A695D2F74C31E6 /* UIColor+HexString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+HexString.m"; sourceTree = "<group>"; };
 		1B3EE09F4F8371FCB846314F /* UnsplashEndPoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UnsplashEndPoint.h; sourceTree = "<group>"; };
 		1B3EE0AA5D8580CD1B072E4A /* LocalPhotoVM.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocalPhotoVM.m; sourceTree = "<group>"; };
 		1B3EE0B94E7167DCFBFC32C6 /* BasePhotoVM.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BasePhotoVM.m; sourceTree = "<group>"; };
 		1B3EE105F9693A3547BF3F18 /* ListPhotosViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListPhotosViewController.m; sourceTree = "<group>"; };
 		1B3EE165185AC1A9D95DA4FE /* CircleImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CircleImageView.h; sourceTree = "<group>"; };
 		1B3EE166A9C6B6F85A80F135 /* CircleImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CircleImageView.m; sourceTree = "<group>"; };
+		1B3EE2589DDAC4E11891576A /* UIColor+HexString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+HexString.h"; sourceTree = "<group>"; };
+		1B3EE29F59AC9DBBC35091F9 /* CustomAnimatedTransitioning.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomAnimatedTransitioning.h; sourceTree = "<group>"; };
 		1B3EE393C72ACF5A4D1CF3FF /* UnsplashAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UnsplashAPI.h; sourceTree = "<group>"; };
 		1B3EE3B723C922D15C039A36 /* NetworkingManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkingManager.h; sourceTree = "<group>"; };
 		1B3EE42EEC576B0B19121BA0 /* UnsplashAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UnsplashAPI.m; sourceTree = "<group>"; };
@@ -53,6 +59,7 @@
 		1B3EEB307BD103B42C1596C8 /* UIViewController+ProcessView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+ProcessView.h"; sourceTree = "<group>"; };
 		1B3EEBE71FF42C2F4B77A792 /* BasePhotoVM.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BasePhotoVM.h; sourceTree = "<group>"; };
 		1B3EEC91E1C54F3806702B10 /* ListPhotosViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListPhotosViewController.h; sourceTree = "<group>"; };
+		1B3EED0F7B5483D331A2FFC1 /* CustomAnimatedTransitioning.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomAnimatedTransitioning.m; sourceTree = "<group>"; };
 		1B3EED8C6AAE1D92D78F36B9 /* UIViewController+ProcessView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+ProcessView.m"; sourceTree = "<group>"; };
 		1B3EEDC47B8117BB5D69E00F /* SupportFunctions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SupportFunctions.h; sourceTree = "<group>"; };
 		1B3EEDF3AFF11A76ADB7E064 /* USPhoto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = USPhoto.m; sourceTree = "<group>"; };
@@ -82,6 +89,8 @@
 		DB12B746234214E6004CE43D /* PhotoCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PhotoCollectionViewCell.h; sourceTree = "<group>"; };
 		DB12B747234214E6004CE43D /* PhotoCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PhotoCollectionViewCell.m; sourceTree = "<group>"; };
 		DB12B748234214E6004CE43D /* PhotoCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PhotoCollectionViewCell.xib; sourceTree = "<group>"; };
+		DB8CE075234B4551006C0D20 /* FullViewPhotoViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FullViewPhotoViewController.h; sourceTree = "<group>"; };
+		DB8CE076234B4551006C0D20 /* FullViewPhotoViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FullViewPhotoViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -128,12 +137,23 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
+		1B3EEBB6CDC9FFBD7A135099 /* Animation */ = {
+			isa = PBXGroup;
+			children = (
+				1B3EED0F7B5483D331A2FFC1 /* CustomAnimatedTransitioning.m */,
+				1B3EE29F59AC9DBBC35091F9 /* CustomAnimatedTransitioning.h */,
+			);
+			path = Animation;
+			sourceTree = "<group>";
+		};
 		1B3EEDDAFF2B6EB165F96D37 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
 				1B3EEDC47B8117BB5D69E00F /* SupportFunctions.h */,
 				1B3EED8C6AAE1D92D78F36B9 /* UIViewController+ProcessView.m */,
 				1B3EEB307BD103B42C1596C8 /* UIViewController+ProcessView.h */,
+				1B3EE07120A695D2F74C31E6 /* UIColor+HexString.m */,
+				1B3EE2589DDAC4E11891576A /* UIColor+HexString.h */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -199,6 +219,7 @@
 		DB12B74323421283004CE43D /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				1B3EEBB6CDC9FFBD7A135099 /* Animation */,
 				DB12B72F2341AE69004CE43D /* TestingViewController.h */,
 				DB12B7302341AE69004CE43D /* TestingViewController.m */,
 				1B3EE105F9693A3547BF3F18 /* ListPhotosViewController.m */,
@@ -206,6 +227,8 @@
 				DB0FAB332344997C00332D12 /* PhotoDetailViewController.h */,
 				DB0FAB342344997C00332D12 /* PhotoDetailViewController.m */,
 				DB0FAB352344997C00332D12 /* PhotoDetailViewController.xib */,
+				DB8CE075234B4551006C0D20 /* FullViewPhotoViewController.h */,
+				DB8CE076234B4551006C0D20 /* FullViewPhotoViewController.m */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -356,6 +379,7 @@
 				DB0FAB32234440D600332D12 /* WaterFallLayout.m in Sources */,
 				DB12B7312341AE69004CE43D /* TestingViewController.m in Sources */,
 				DB12B72B2341AE69004CE43D /* AppDelegate.m in Sources */,
+				DB8CE077234B4552006C0D20 /* FullViewPhotoViewController.m in Sources */,
 				DB12B73C2341AE6B004CE43D /* main.m in Sources */,
 				DB12B749234214E6004CE43D /* PhotoCollectionViewCell.m in Sources */,
 				DB12B72E2341AE69004CE43D /* SceneDelegate.m in Sources */,
@@ -371,6 +395,8 @@
 				1B3EEED506C0784AAAEE0C70 /* CircleImageView.m in Sources */,
 				1B3EE33C01050DE3914EAA6E /* BasePhotoVM.m in Sources */,
 				1B3EEF085A51EED79AC8EED4 /* LocalPhotoVM.m in Sources */,
+				1B3EE2BE9682577E172713D4 /* CustomAnimatedTransitioning.m in Sources */,
+				1B3EE3559E7CE8EF42228753 /* UIColor+HexString.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -514,7 +540,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 337WK8U59Q;
 				INFOPLIST_FILE = "TF Unspash/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -534,7 +560,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 337WK8U59Q;
 				INFOPLIST_FILE = "TF Unspash/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
