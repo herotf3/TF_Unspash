@@ -21,7 +21,7 @@
     return nil;
 }
 
-- (void)setImageIntoImageView:(UIImageView *)imageView {
+- (void)setImageIntoImageView {
 }
 
 /** Clear cache or reset any resource before binding from view model into view (cell)

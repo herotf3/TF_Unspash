@@ -49,11 +49,11 @@
     return iconDevice;
 }
 
-- (void)setImageIntoImageView:(UIImageView *)imageView {
+- (void)setImageIntoImageView {
 
     UIImage *image = [LocalPhotoVM.imagesCache objectForKey: self.asset.localIdentifier];
     if (image){
-        imageView.image = image;
+        self.photoCell.image = image;
         return;
     }
 

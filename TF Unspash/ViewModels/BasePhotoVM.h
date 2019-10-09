@@ -17,7 +17,7 @@
 -(UIImage *) iconForType;
 
 
-- (void)setImageIntoImageView:(UIImageView *)imageView;
+- (void)setImageIntoImageView;
 - (void)prepareForReuse;
 - (CGSize)photoSize;
 @end

@@ -33,8 +33,8 @@
     return nil;
 }
 
-- (void)setImageIntoImageView:(UIImageView *)imageView {
-    [imageView sd_setImageWithURL:[[NSURL alloc] initWithString:self.photo.urls.thumb]];
+- (void)setImageIntoImageView{
+    [self.photoCell.imageView sd_setImageWithURL:[[NSURL alloc] initWithString:self.photo.urls.thumb]];
 }
 
 - (CGSize)photoSize {

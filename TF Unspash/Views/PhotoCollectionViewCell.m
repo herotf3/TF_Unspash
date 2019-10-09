@@ -44,7 +44,7 @@
     self.photoVM = viewModel;
     viewModel.photoCell = self;
 
-    [viewModel setImageIntoImageView:self.imageView];
+    [viewModel setImageIntoImageView];
     self.iconTypeImv.image = [viewModel iconForType];
 }
 
