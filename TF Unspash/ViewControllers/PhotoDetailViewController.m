@@ -11,6 +11,7 @@
 #import "USPhotoVM.h"
 #import "FullViewPhotoViewController.h"
 #import "CustomAnimatedTransitioning.h"
+#import "ZoomTransitionController.h"
 
 @interface PhotoDetailViewController () <UIViewControllerTransitioningDelegate>
 @property(weak, nonatomic) IBOutlet UIImageView *imvMainPhoto;
@@ -30,6 +31,15 @@
 
 @implementation PhotoDetailViewController
 
+- (instancetype)init {
+    self = [super init];
+    if (self) {
+        self.transitionController = [ZoomTransitionController new];
+    }
+    return self;
+}
+
+
 - (void)viewDidLoad {
     [super viewDidLoad];
 
@@ -40,9 +50,7 @@
 - (void)bindData {
     CGFloat w = _imvMainPhoto.frame.size.width;
     CGFloat h = w * (_photoVM.photoSize.height / _photoVM.photoSize.width);
-    dispatch_async(dispatch_get_main_queue(), ^{
-        self.photoHeightConstraint.constant = h;
-    });
+    self.photoHeightConstraint.constant = h;
     
     [_imvMainPhoto sd_setImageWithURL:[self.photoVM photoURLForDisplayInLarge] placeholderImage:_photoVM.photoPlaceHolder];
     
@@ -83,6 +91,20 @@
 - (nullable id <UIViewControllerAnimatedTransitioning>)animationControllerForDismissedController:(UIViewController *)dismissed {
     self.transition.presenting = NO;
     return self.transition;
+}
+
+#pragma mark - ZoomAnimator delegate
+
+- (CGRect)referenceImageViewFrameInTransitionView:(ZoomAnimator *)animator {
+    CGRect frame = self.imvMainPhoto.frame;
+    if (self.navigationController && self.navigationController.navigationBar){
+        frame.origin.y += self.navigationController.navigationBar.frame.size.height + UIApplication.sharedApplication.keyWindow.safeAreaInsets.top;
+    }
+    return frame;
+}
+
+- (UIImageView *)referenceImageView:(ZoomAnimator *)animator {
+    return self.imvMainPhoto;
 }
 
 

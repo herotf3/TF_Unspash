@@ -10,16 +10,16 @@
 #import "WaterFallLayout.h"
 #import "UIViewController+ProcessView.h"
 #import "PhotoDetailViewController.h"
-#import "CustomAnimatedTransitioning.h"
+#import "ZoomTransitionController.h"
 
 #define PHOTO_CELL_ID @"PhotoCollectionCellId"
 
-@interface ListPhotosViewController () <UICollectionViewDataSource, UICollectionViewDelegate, WaterFallLayoutDelegate, ListPhotosViewModelsDelegate>
+@interface ListPhotosViewController () <UICollectionViewDataSource, UICollectionViewDelegate, WaterFallLayoutDelegate, ListPhotosViewModelsDelegate, ZoomAnimatorDelegate>
 
 @property(weak, nonatomic) IBOutlet UICollectionView *clvPhotos;
 @property(strong, nonatomic) NSArray<BasePhotoVM*>* photos;
 
-@property (strong, nonatomic) CustomAnimatedTransitioning * transition;
+@property(nonatomic, strong) NSIndexPath *selectedIndexPath;
 @end
 
 @implementation ListPhotosViewController {
@@ -33,7 +33,6 @@
     self.listPhotoVM = [[ListPhotosViewModel alloc] initWithDelegate:self];
     [self.listPhotoVM fetchData];
 
-    self.transition = [CustomAnimatedTransitioning new];
 }
 
 - (void)setupCollectionView {
@@ -65,9 +64,22 @@
 #pragma mark - Collection view delegate
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+    self.selectedIndexPath = indexPath;
     if ([_photos[indexPath.row] isKindOfClass:USPhotoVM.class]){
         PhotoDetailViewController *detailVC = [PhotoDetailViewController new];
         detailVC.photoVM = (USPhotoVM *) self.photos[indexPath.row];
+        
+        detailVC.view.frame = self.view.frame;
+        [detailVC.view setNeedsLayout];
+        [detailVC.view layoutIfNeeded];
+
+        // set transition animation delegate
+        UINavigationController * nav = self.navigationController;
+        if (nav){
+            nav.delegate = detailVC.transitionController;
+            detailVC.transitionController.fromDelegate = self;
+            detailVC.transitionController.toDelegate = detailVC;
+        }
 
         [self.navigationController pushViewController:detailVC animated:YES];
     }
@@ -110,6 +122,23 @@
         [self.view layoutIfNeeded];
         [self.clvPhotos reloadData];
     }];
+}
+
+#pragma mark - ZoomAnimator delegate
+- (CGRect)referenceImageViewFrameInTransitionView:(ZoomAnimator *)animator {
+    PhotoCollectionViewCell * photoCell = (PhotoCollectionViewCell *) [self.clvPhotos cellForItemAtIndexPath:self.selectedIndexPath];
+    CGRect unConvertFrame = photoCell.frame;
+    CGRect cellFrame = [self.clvPhotos convertRect:unConvertFrame toView:self.view];
+
+    if (CGRectGetMinY(cellFrame) < self.clvPhotos.contentInset.top){
+        return CGRectMake(cellFrame.origin.x, self.clvPhotos.contentInset.top, cellFrame.size.width, cellFrame.size.height);
+    }
+    return cellFrame;
+}
+
+- (UIImageView *)referenceImageView:(ZoomAnimator *)animator {
+    PhotoCollectionViewCell * photoCell = (PhotoCollectionViewCell *) [self.clvPhotos cellForItemAtIndexPath:self.selectedIndexPath];
+    return photoCell.imageView;
 }
 
 

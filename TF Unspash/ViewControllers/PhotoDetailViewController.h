@@ -7,15 +7,18 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ZoomTransitioningAnimator.h"
 
 @class USPhotoVM;
+@class ZoomTransitionController;
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface PhotoDetailViewController : UIViewController
+@interface PhotoDetailViewController : UIViewController <ZoomAnimatorDelegate>
 
 @property(nonatomic, strong) USPhotoVM *photoVM;
 
+@property(nonatomic, strong) ZoomTransitionController* transitionController;
 @end
 
 NS_ASSUME_NONNULL_END

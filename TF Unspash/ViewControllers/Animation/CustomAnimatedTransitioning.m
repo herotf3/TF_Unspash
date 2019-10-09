@@ -36,7 +36,8 @@
 - (void)animateTransition:(id <UIViewControllerContextTransitioning>)transitionContext {
     UIView * containerView = transitionContext.containerView;
     UIView * toView = [transitionContext viewForKey:UITransitionContextToViewKey];
-    UIView * animatedView = _presenting? toView : [transitionContext viewForKey:UITransitionContextFromViewKey];
+    UIView * fromView = [transitionContext viewForKey:UITransitionContextFromViewKey];
+    UIView * animatedView = _presenting? toView : fromView;
 
     CGRect initialFrame = _presenting? self.originFrame : animatedView.frame;
     CGRect fullScreenFrame = UIApplication.sharedApplication.keyWindow.frame;
