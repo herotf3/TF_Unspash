@@ -7,6 +7,7 @@
 #import <UIKit/UIKit.h>
 #import "LocalPhotoVM.h"
 #import "UIImageView+WebCache.h"
+#import "SDInternalMacros.h"
 
 @interface LocalPhotoVM()
 @property(nonatomic, strong) PHImageRequestOptions *options;
@@ -60,11 +61,14 @@
     self.photoCell.localAssetID = _asset.localIdentifier;
     CGSize size = CGSizeMake(self.asset.pixelWidth* self.scale, self.asset.pixelHeight* self.scale);
     // Cache missed, request image for asset
+    @weakify(self);
     self.phImageRequestID = [PHImageManager.defaultManager requestImageForAsset:self.asset targetSize:size contentMode:PHImageContentModeDefault
                                                 options:self.options resultHandler:^(UIImage *image, NSDictionary *info)
     {
+        @strongify(self);
         if ([self.photoCell.localAssetID isEqualToString:self.asset.localIdentifier] && image){
             [self.photoCell setImage: image];
+            // Cache
             [LocalPhotoVM.imagesCache setObject:image forKey:self.asset.localIdentifier];
         }
     }];
