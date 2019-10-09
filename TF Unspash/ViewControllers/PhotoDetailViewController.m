@@ -23,6 +23,8 @@
 @property(weak, nonatomic) IBOutlet UILabel *lbTotalLikeOfUser;
 @property(weak, nonatomic) IBOutlet UILabel *lbTotalUserPhoto;
 
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *photoHeightConstraint;
+
 @property(nonatomic, strong) CustomAnimatedTransitioning * transition;
 @end
 
@@ -36,9 +38,15 @@
 }
 
 - (void)bindData {
+    CGFloat w = _imvMainPhoto.frame.size.width;
+    CGFloat h = w * (_photoVM.photoSize.height / _photoVM.photoSize.width);
+    dispatch_async(dispatch_get_main_queue(), ^{
+        self.photoHeightConstraint.constant = h;
+    });
+    
+    [_imvMainPhoto sd_setImageWithURL:[self.photoVM photoURLForDisplayInLarge] placeholderImage:_photoVM.photoPlaceHolder];
+    
     [_imvAvatar sd_setImageWithURL:_photoVM.userAvatar placeholderImage:nil];
-
-    [_imvMainPhoto sd_setImageWithURL:[self.photoVM photoURLForDisplayInLarge] placeholderImage:_photoVM.placeHolderImage];
     _lbTotalLikes.text = _photoVM.totalLike;
     _userName.text = _photoVM.userName;
     _lbInstagram.text = _photoVM.instagramUsername;
@@ -56,6 +64,7 @@
 
 - (IBAction)onActionDidTouchPhoto:(id)sender {
     FullViewPhotoViewController *fullPhotoVC = [[FullViewPhotoViewController alloc] initWithFrame: self.view.frame viewModel:self.photoVM];
+    fullPhotoVC.photoVM = self.photoVM;
     fullPhotoVC.transitioningDelegate = self;
     fullPhotoVC.modalPresentationStyle = UIModalPresentationFullScreen;
     [self presentViewController:fullPhotoVC animated:YES completion:nil];

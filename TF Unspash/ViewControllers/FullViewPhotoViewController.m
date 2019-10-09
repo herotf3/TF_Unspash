@@ -14,6 +14,7 @@
 
 @property (strong, nonatomic) UIImageView* imvPhoto;
 @property (strong, nonatomic) UIButton * closeButton;
+@property (strong, nonatomic) UIScrollView * scrollView;
 
 @end
 
@@ -36,13 +37,23 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+
+    CGRect frameForImv = self.view.frame;
+    CGFloat h = self.view.frame.size.height;
+    CGFloat w = h * _photoVM.photoSize.width /_photoVM.photoSize.height;
+    frameForImv.size = CGSizeMake(w, h) ;
+    self.imvPhoto.frame = frameForImv;
+    self.scrollView.contentSize = frameForImv.size;
+    
     [self.imvPhoto sd_setImageWithURL:[self.photoVM photoURLForDisplayInLarge] placeholderImage:[self.photoVM photoPlaceHolder]];
 }
 
 
 - (void)layoutViews {
-    self.imvPhoto.frame = self.view.frame;
-    [self.view addSubview:self.imvPhoto];
+    self.scrollView.frame = self.view.frame;
+
+    [self.view addSubview:self.scrollView];
+    [self.scrollView addSubview:self.imvPhoto];
     [self.view addSubview:self.closeButton];
 }
 
@@ -63,11 +74,21 @@
         [_closeButton setTitleColor:UIColor.whiteColor forState:UIControlStateNormal];
 
         [_closeButton addTarget:self action:@selector(closeViewController) forControlEvents:UIControlEventTouchUpInside];
-        _closeButton.frame = CGRectMake(20, 20, 100, 100);
+        _closeButton.frame = CGRectMake(8, 20, 50, 50);
+        _closeButton.clipsToBounds = NO;
 
     }
     return _closeButton;
 }
+
+- (UIScrollView *)scrollView {
+    if (!_scrollView){
+        _scrollView = [[UIScrollView alloc] init];
+        [_scrollView setBounces:NO];
+    }
+    return _scrollView;
+}
+
 
 - (void)closeViewController {
     [self dismissViewControllerAnimated:YES completion:nil];

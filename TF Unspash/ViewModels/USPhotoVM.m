@@ -56,11 +56,6 @@
     return [[NSURL alloc] initWithString:self.photo.urls.full];
 }
 
-
-- (UIImage *)placeHolderImage {
-    return nil;
-}
-
 - (NSString *)totalLike {
     return @(self.photo.likes).stringValue;
 }

@@ -16,9 +16,6 @@
 
 /** Subclass need override these methods
  * */
-- (NSURL *)photoURLForDisplayInThumb {
-    return nil;
-}
 
 - (UIImage *)iconForType {
     return nil;

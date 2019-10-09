@@ -14,7 +14,6 @@
 
 @property (nonatomic, weak) PhotoCollectionViewCell* photoCell;
 
--(NSURL *) photoURLForDisplayInThumb;
 -(UIImage *) iconForType;
 
 

@@ -34,7 +34,6 @@
     static NSCache<NSString *, UIImage *> * imagesCache = nil;
     if (!imagesCache){
         imagesCache = [[NSCache alloc] init];
-//        imagesCache.countLimit = 20;
     }
     return imagesCache;
 }

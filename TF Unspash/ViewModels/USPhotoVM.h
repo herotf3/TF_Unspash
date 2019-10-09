@@ -18,8 +18,6 @@
 
 - (NSURL *)photoURLForDisplayInLarge;
 
-- (UIImage *)placeHolderImage;
-
 - (NSString *)totalLike;
 
 - (NSString *)userName;
