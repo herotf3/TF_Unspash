@@ -4,7 +4,7 @@
 //
 
 #import "ZoomTransitionController.h"
-#import "ZoomTransitioningAnimator.h"
+#import "ZoomAnimator.h"
 
 @interface ZoomTransitionController() <UIViewControllerTransitioningDelegate, UINavigationControllerDelegate>
 

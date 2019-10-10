@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "ZoomTransitioningAnimator.h"
+#import "ZoomAnimator.h"
 
 @class USPhotoVM;
 @class ZoomTransitionController;

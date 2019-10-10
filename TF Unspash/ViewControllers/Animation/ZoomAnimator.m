@@ -3,7 +3,7 @@
 // Copyright (c) 2019 CPU11808. All rights reserved.
 //
 
-#import "ZoomTransitioningAnimator.h"
+#import "ZoomAnimator.h"
 
 
 @interface ZoomAnimator()
@@ -57,7 +57,7 @@
                          toView.alpha = 1.0;
 
                      } completion:^(BOOL finished) {
-//                [animatedView removeFromSuperview];
+                [animatedView removeFromSuperview];
                 //show 2 image views again
                 [refToImageView setHidden:NO];
                 [refFromImageView setHidden:NO];

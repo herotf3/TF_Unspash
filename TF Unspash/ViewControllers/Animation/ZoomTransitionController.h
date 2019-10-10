@@ -4,7 +4,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "ZoomTransitioningAnimator.h"
+#import "ZoomAnimator.h"
 
 
 @interface ZoomTransitionController : NSObject <UINavigationControllerDelegate>
