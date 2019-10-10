@@ -33,6 +33,7 @@
 + (NSCache<NSString *, UIImage *> *)imagesCache {
     static NSCache<NSString *, UIImage *> * imagesCache = nil;
     if (!imagesCache){
+        NSLog(@"init static cache");
         imagesCache = [[NSCache alloc] init];
     }
     return imagesCache;
@@ -58,7 +59,9 @@
     }
 
     self.photoCell.localAssetID = _asset.localIdentifier;
-    CGSize size = CGSizeMake(self.asset.pixelWidth* self.scale, self.asset.pixelHeight* self.scale);
+    CGFloat scale = UIScreen.mainScreen.scale;
+    CGSize cellSize = self.photoCell.frame.size;
+    CGSize size = CGSizeMake(cellSize.width * scale, cellSize.height * scale);
     // Cache missed, request image for asset
     @weakify(self);
     self.phImageRequestID = [PHImageManager.defaultManager requestImageForAsset:self.asset targetSize:size contentMode:PHImageContentModeDefault
@@ -72,10 +75,6 @@
         }
     }];
 
-}
-
-- (CGFloat)scale {
-    return 0.5;
 }
 
 - (void)prepareForReuse {
