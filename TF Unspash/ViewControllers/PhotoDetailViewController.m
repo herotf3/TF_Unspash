@@ -99,8 +99,9 @@
 - (CGRect)referenceImageViewFrameInTransitionView:(ZoomAnimator *)animator {
     CGRect frame = self.imvMainPhoto.frame;
     if (self.navigationController && self.navigationController.navigationBar){
-        frame.origin.y += self.navigationController.navigationBar.frame.size.height + UIApplication.sharedApplication.keyWindow.safeAreaInsets.top;
+        frame.origin.y += self.navigationController.navigationBar.frame.size.height + self.navigationController.navigationBar.frame.origin.y; 
     }
+    frame = [self.imvMainPhoto.superview convertRect:frame toView:nil];
     return frame;
 }
 
