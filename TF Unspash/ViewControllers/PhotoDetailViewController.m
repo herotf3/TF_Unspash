@@ -23,6 +23,7 @@
 @property(weak, nonatomic) IBOutlet UIImageView *imvAvatar;
 @property(weak, nonatomic) IBOutlet UILabel *lbTotalLikeOfUser;
 @property(weak, nonatomic) IBOutlet UILabel *lbTotalUserPhoto;
+@property (weak, nonatomic) IBOutlet UIView *contentViewOfScrollView;
 
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *photoHeightConstraint;
 
@@ -52,7 +53,7 @@
     CGFloat h = w * (_photoVM.photoSize.height / _photoVM.photoSize.width);
     self.photoHeightConstraint.constant = h;
     
-    [_imvMainPhoto sd_setImageWithURL:[self.photoVM photoURLForDisplayInLarge] placeholderImage:_photoVM.photoPlaceHolder];
+    [_imvMainPhoto sd_setImageWithURL:[self.photoVM photoURLForLargeDisplay] placeholderImage:_photoVM.photoPlaceHolder];
     
     [_imvAvatar sd_setImageWithURL:_photoVM.userAvatar placeholderImage:nil];
     _lbTotalLikes.text = _photoVM.totalLike;
@@ -82,7 +83,7 @@
 
 - (nullable id <UIViewControllerAnimatedTransitioning>)animationControllerForPresentedController:(UIViewController *)presented presentingController:(UIViewController *)presenting sourceController:(UIViewController *)source {
 
-    self.transition.originFrame = [self.view convertRect:self.imvMainPhoto.frame toView:nil];    // get the frame in screen's coordinate
+    self.transition.originFrame = [self.imvMainPhoto.superview convertRect:self.imvMainPhoto.frame toView:nil];    // get the frame in screen's coordinate
     self.transition.presenting = YES;
 
     return self.transition;

@@ -16,7 +16,7 @@
 
 + (instancetype)photoVMWithPhoto:(USPhoto *)photo;
 
-- (NSURL *)photoURLForDisplayInLarge;
+- (NSURL *)photoURLForLargeDisplay;
 
 - (NSString *)totalLike;
 
@@ -33,4 +33,8 @@
 - (NSString *)totalUserPhoto;
 
 - (UIImage *)photoPlaceHolder;
+
+- (NSURL *)photoURLForThumbDisplay;
+
+- (NSURL *)photoURLForFullDisplay;
 @end

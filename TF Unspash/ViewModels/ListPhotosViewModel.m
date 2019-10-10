@@ -37,6 +37,7 @@
     return self;
 }
 
+
 + (instancetype)modelWithDelegate:(id <ListPhotosViewModelsDelegate>)delegate {
     return [[self alloc] initWithDelegate:delegate];
 }

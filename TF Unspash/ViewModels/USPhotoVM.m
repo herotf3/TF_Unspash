@@ -34,7 +34,7 @@
 }
 
 - (void)setImageIntoImageView{
-    [self.photoCell.imageView sd_setImageWithURL:[[NSURL alloc] initWithString:self.photo.urls.thumb]];
+    [self.photoCell.imageView sd_setImageWithURL:self.photoURLForThumbDisplay];
 }
 
 - (CGSize)photoSize {
@@ -47,12 +47,16 @@
 
 
 #pragma mark - Data for presentation
-
-- (NSURL *)photoURLForDisplayInThumb {
+// Photo sizes
+- (NSURL *)photoURLForThumbDisplay {
     return [[NSURL alloc] initWithString:self.photo.urls.thumb];
 }
 
-- (NSURL *)photoURLForDisplayInLarge {
+- (NSURL *)photoURLForLargeDisplay {
+    return [[NSURL alloc] initWithString:self.photo.urls.regular];
+}
+
+- (NSURL *)photoURLForFullDisplay {
     return [[NSURL alloc] initWithString:self.photo.urls.full];
 }
 
@@ -60,7 +64,7 @@
     return @(self.photo.likes).stringValue;
 }
 
-
+// User's info
 - (NSString *)userName {
     NSString *fullName = [NSString stringWithFormat:@"%@ %@", self.photo.user.firstName, self.photo.user.lastName];
     return fullName;
@@ -107,4 +111,5 @@
 
     return placeHolder;
 }
+
 @end

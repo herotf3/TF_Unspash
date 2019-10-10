@@ -45,7 +45,7 @@
     self.imvPhoto.frame = frameForImv;
     self.scrollView.contentSize = frameForImv.size;
     
-    [self.imvPhoto sd_setImageWithURL:[self.photoVM photoURLForDisplayInLarge] placeholderImage:[self.photoVM photoPlaceHolder]];
+    [self.imvPhoto sd_setImageWithURL:[self.photoVM photoURLForFullDisplay] placeholderImage:[self.photoVM photoPlaceHolder]];
 }
 
 
