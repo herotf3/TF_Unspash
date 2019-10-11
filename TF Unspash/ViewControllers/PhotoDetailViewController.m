@@ -13,7 +13,7 @@
 #import "CustomAnimatedTransitioning.h"
 #import "ZoomTransitionController.h"
 
-@interface PhotoDetailViewController () <UIViewControllerTransitioningDelegate>
+@interface PhotoDetailViewController () <UIViewControllerTransitioningDelegate, UIGestureRecognizerDelegate>
 @property(weak, nonatomic) IBOutlet UIImageView *imvMainPhoto;
 @property(weak, nonatomic) IBOutlet UILabel *lbCreateAtDate;
 @property(weak, nonatomic) IBOutlet UIView *userInfoView;
@@ -24,10 +24,12 @@
 @property(weak, nonatomic) IBOutlet UILabel *lbTotalLikeOfUser;
 @property(weak, nonatomic) IBOutlet UILabel *lbTotalUserPhoto;
 @property (weak, nonatomic) IBOutlet UIView *contentViewOfScrollView;
+@property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *photoHeightConstraint;
 
 @property(nonatomic, strong) CustomAnimatedTransitioning * transition;
+@property (nonatomic, strong) UIPanGestureRecognizer * panGestureRecognizer;
 @end
 
 @implementation PhotoDetailViewController
@@ -40,12 +42,44 @@
     return self;
 }
 
-
 - (void)viewDidLoad {
     [super viewDidLoad];
 
     [self bindData];
+
     _transition = [CustomAnimatedTransitioning new];
+
+    self.panGestureRecognizer = [UIPanGestureRecognizer new];
+    self.panGestureRecognizer.delegate = self;
+    [self.panGestureRecognizer addTarget:self action:@selector(didPanWithGesture:)];
+    [self.view addGestureRecognizer:self.panGestureRecognizer];
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+
+}
+
+
+- (void)didPanWithGesture:(UIPanGestureRecognizer *)gestureRecognizer {
+    switch (gestureRecognizer.state) {
+        case UIGestureRecognizerStateBegan:
+            [self.scrollView setScrollEnabled:NO];
+            self.transitionController.isInteractive = YES;
+            [self.navigationController popViewControllerAnimated:YES];
+            break;
+        case UIGestureRecognizerStateEnded:
+            if (self.transitionController.isInteractive) {
+                [self.scrollView setScrollEnabled:YES];
+                self.transitionController.isInteractive = NO;
+                [self.transitionController didPanWithGesture:gestureRecognizer];
+            }
+            break;
+        default:
+            if (self.transitionController.isInteractive) {
+                [self.transitionController didPanWithGesture:gestureRecognizer];
+            }
+    }
 }
 
 - (void)bindData {
@@ -107,6 +141,32 @@
 
 - (UIImageView *)referenceImageView:(ZoomAnimator *)animator {
     return self.imvMainPhoto;
+}
+
+#pragma mark - Pan gesture delegate
+
+- (BOOL)gestureRecognizerShouldBegin:(UIGestureRecognizer *)gestureRecognizer {
+    if ([gestureRecognizer isKindOfClass:UIPanGestureRecognizer.class]){
+        UIPanGestureRecognizer *panGesture = (UIPanGestureRecognizer *) gestureRecognizer;
+        CGPoint velocity = [panGesture velocityInView:self.view];
+        //Only begin if gesture is pan down
+        if (UIDeviceOrientationIsLandscape(UIDevice.currentDevice.orientation)){
+            return velocity.x >= 0; // vertical axis is x in landscape
+        }else{
+            return velocity.y >= 0;
+        }
+    }
+    //other gesture
+    return YES;
+}
+
+- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer {
+    // Check for scroll gesture in scroll view
+    if (otherGestureRecognizer == self.scrollView.panGestureRecognizer){
+        if (self.scrollView.contentOffset.y <= 0)
+            return YES;
+    }
+    return NO;
 }
 
 

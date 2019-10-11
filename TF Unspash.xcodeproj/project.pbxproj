@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		1B3EE091B7B4D43877EA706B /* ZoomTransitionController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B3EE25C48FDE1EC49CFB086 /* ZoomTransitionController.m */; };
 		1B3EE0D4255702B4580134D2 /* ListPhotosViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B3EE105F9693A3547BF3F18 /* ListPhotosViewController.m */; };
+		1B3EE2BD5A70631D56161779 /* ZoomDismissalInteractionController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B3EEA2868036A1F517B5351 /* ZoomDismissalInteractionController.m */; };
 		1B3EE2BE9682577E172713D4 /* CustomAnimatedTransitioning.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B3EED0F7B5483D331A2FFC1 /* CustomAnimatedTransitioning.m */; };
 		1B3EE2F98873A3C59CC93DCE /* ListPhotosViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B3EEF47540C80E532914A3A /* ListPhotosViewModel.m */; };
 		1B3EE33C01050DE3914EAA6E /* BasePhotoVM.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B3EE0B94E7167DCFBFC32C6 /* BasePhotoVM.m */; };
@@ -58,6 +59,7 @@
 		1B3EE4FF7EDAB252EEA64A75 /* ListPhotosViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListPhotosViewModel.h; sourceTree = "<group>"; };
 		1B3EE77510D4EEBB96067D57 /* LocalPhotoVM.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocalPhotoVM.h; sourceTree = "<group>"; };
 		1B3EE777C897125009F84350 /* ZoomAnimator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZoomAnimator.m; sourceTree = "<group>"; };
+		1B3EEA2868036A1F517B5351 /* ZoomDismissalInteractionController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZoomDismissalInteractionController.m; sourceTree = "<group>"; };
 		1B3EEA9E27C7ED41DD603507 /* UnsplashEndPoint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UnsplashEndPoint.m; sourceTree = "<group>"; };
 		1B3EEAC77F517AF7F54D3B54 /* USPhotoVM.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = USPhotoVM.h; sourceTree = "<group>"; };
 		1B3EEB307BD103B42C1596C8 /* UIViewController+ProcessView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+ProcessView.h"; sourceTree = "<group>"; };
@@ -65,6 +67,7 @@
 		1B3EEC2E5DF3F125247C3130 /* ZoomTransitionController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZoomTransitionController.h; sourceTree = "<group>"; };
 		1B3EEC91E1C54F3806702B10 /* ListPhotosViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListPhotosViewController.h; sourceTree = "<group>"; };
 		1B3EED0F7B5483D331A2FFC1 /* CustomAnimatedTransitioning.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomAnimatedTransitioning.m; sourceTree = "<group>"; };
+		1B3EED1E508BCFA2599B78E8 /* ZoomDismissalInteractionController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZoomDismissalInteractionController.h; sourceTree = "<group>"; };
 		1B3EED4DD3768A04799F28E0 /* ZoomAnimator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZoomAnimator.h; sourceTree = "<group>"; };
 		1B3EED8C6AAE1D92D78F36B9 /* UIViewController+ProcessView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+ProcessView.m"; sourceTree = "<group>"; };
 		1B3EEDC47B8117BB5D69E00F /* SupportFunctions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SupportFunctions.h; sourceTree = "<group>"; };
@@ -134,6 +137,15 @@
 			path = ViewModels;
 			sourceTree = "<group>";
 		};
+		1B3EE966827FA5D9011963E2 /* Interactions */ = {
+			isa = PBXGroup;
+			children = (
+				1B3EEA2868036A1F517B5351 /* ZoomDismissalInteractionController.m */,
+				1B3EED1E508BCFA2599B78E8 /* ZoomDismissalInteractionController.h */,
+			);
+			path = Interactions;
+			sourceTree = "<group>";
+		};
 		1B3EEAF9A6860127420E86A4 /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -152,6 +164,7 @@
 				1B3EED4DD3768A04799F28E0 /* ZoomAnimator.h */,
 				1B3EE25C48FDE1EC49CFB086 /* ZoomTransitionController.m */,
 				1B3EEC2E5DF3F125247C3130 /* ZoomTransitionController.h */,
+				1B3EE966827FA5D9011963E2 /* Interactions */,
 			);
 			path = Animation;
 			sourceTree = "<group>";
@@ -409,6 +422,7 @@
 				1B3EE3559E7CE8EF42228753 /* UIColor+HexString.m in Sources */,
 				1B3EEE676DA078E8050E2235 /* ZoomAnimator.m in Sources */,
 				1B3EE091B7B4D43877EA706B /* ZoomTransitionController.m in Sources */,
+				1B3EE2BD5A70631D56161779 /* ZoomDismissalInteractionController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

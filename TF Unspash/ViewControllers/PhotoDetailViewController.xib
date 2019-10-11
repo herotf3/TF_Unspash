@@ -19,6 +19,7 @@
                 <outlet property="lbTotalLikes" destination="nxU-LP-YpN" id="Mfq-n0-Oka"/>
                 <outlet property="lbTotalUserPhoto" destination="0ie-03-JJe" id="tCN-m9-8yJ"/>
                 <outlet property="photoHeightConstraint" destination="nGz-so-9cw" id="0Jn-d6-op9"/>
+                <outlet property="scrollView" destination="QyE-jT-zMX" id="Osa-bY-BX7"/>
                 <outlet property="userInfoView" destination="byR-vg-Bs4" id="rHe-ls-Iwh"/>
                 <outlet property="userName" destination="NsR-Lj-6tW" id="2JV-tr-9tn"/>
                 <outlet property="view" destination="B7h-rs-ReE" id="IyC-wX-FeM"/>
@@ -29,7 +30,7 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QyE-jT-zMX">
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" maximumZoomScale="4" translatesAutoresizingMaskIntoConstraints="NO" id="QyE-jT-zMX">
                     <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TaT-Xw-pRd">

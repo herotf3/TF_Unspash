@@ -10,15 +10,15 @@
 
 @protocol ZoomAnimatorDelegate  <NSObject>
 @required
--(CGRect) referenceImageViewFrameInTransitionView:(ZoomAnimator*)animator;
--(UIImageView*) referenceImageView:(ZoomAnimator *)animator;
+-(CGRect) referenceImageViewFrameInTransitionView:(ZoomAnimator*_Nullable)animator;
+-(UIImageView*_Nullable) referenceImageView:(ZoomAnimator *_Nullable)animator;
 @end
 
 @interface ZoomAnimator : NSObject<UIViewControllerAnimatedTransitioning>
 
 @property (weak, nonatomic, nullable) id<ZoomAnimatorDelegate> fromDelegate;
 @property (weak, nonatomic, nullable) id<ZoomAnimatorDelegate> toDelegate;
-@property (strong, nonatomic, nonnull) UIImageView *transitionImv;
+@property (strong, nonatomic, nullable) UIView *transitionView;
 @property (assign, nonatomic) BOOL isPresenting;
 
 @end

@@ -39,25 +39,25 @@
     CGRect fromImvFrame = [self.fromDelegate referenceImageViewFrameInTransitionView:self];
     CGRect toImvFrame = [self.toDelegate referenceImageViewFrameInTransitionView:self];
     // snapshot the source image view
-    UIView * animatedView = [refFromImageView snapshotViewAfterScreenUpdates:NO];
+    self.transitionView = [refFromImageView snapshotViewAfterScreenUpdates:NO];
 
     toView.alpha = 0;
     [container addSubview:toView];
     [refToImageView setHidden:YES];
     [refFromImageView setHidden:YES];
 
-    animatedView.frame = fromImvFrame;
-    [container addSubview:animatedView];
+    self.transitionView.frame = fromImvFrame;
+    [container addSubview:self.transitionView];
     // Begin animation
     [UIView animateWithDuration:[self transitionDuration:context]
                           delay:0 usingSpringWithDamping:0.8 initialSpringVelocity:0
                         options:UIViewAnimationOptionTransitionCrossDissolve
                      animations:^{
-                         animatedView.frame = toImvFrame;
+                         self.transitionView.frame = toImvFrame;
                          toView.alpha = 1.0;
 
                      } completion:^(BOOL finished) {
-                [animatedView removeFromSuperview];
+                [self.transitionView removeFromSuperview];
                 //show 2 image views again
                 [refToImageView setHidden:NO];
                 [refFromImageView setHidden:NO];

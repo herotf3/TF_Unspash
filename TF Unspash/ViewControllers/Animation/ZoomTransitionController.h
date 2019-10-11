@@ -6,11 +6,16 @@
 #import <Foundation/Foundation.h>
 #import "ZoomAnimator.h"
 
+@class ZoomDismissalInteractionController;
+
 
 @interface ZoomTransitionController : NSObject <UINavigationControllerDelegate>
 
 @property (strong, nonatomic) ZoomAnimator * animator;
+@property (strong, nonatomic) ZoomDismissalInteractionController * interactionController;
+@property (assign, nonatomic) BOOL isInteractive;
 @property (weak, nonatomic) id<ZoomAnimatorDelegate>  fromDelegate;
 @property (weak, nonatomic) id<ZoomAnimatorDelegate>  toDelegate;
 
+-(void)didPanWithGesture:(UIPanGestureRecognizer *) gestureRecognizer;
 @end
