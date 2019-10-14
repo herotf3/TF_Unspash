@@ -58,6 +58,9 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
 
+    CGFloat w = _imvMainPhoto.frame.size.width;
+    CGFloat h = w * (_photoVM.photoSize.height / _photoVM.photoSize.width);
+    self.photoHeightConstraint.constant = h;
 }
 
 
@@ -83,10 +86,6 @@
 }
 
 - (void)bindData {
-    CGFloat w = _imvMainPhoto.frame.size.width;
-    CGFloat h = w * (_photoVM.photoSize.height / _photoVM.photoSize.width);
-    self.photoHeightConstraint.constant = h;
-    
     [_imvMainPhoto sd_setImageWithURL:[self.photoVM photoURLForLargeDisplay] placeholderImage:_photoVM.photoPlaceHolder];
     
     [_imvAvatar sd_setImageWithURL:_photoVM.userAvatar placeholderImage:nil];
@@ -97,12 +96,6 @@
     _lbTotalLikeOfUser.text = _photoVM.totalLikeOfUser;
     _lbTotalUserPhoto.text = _photoVM.totalUserPhoto;
 
-}
-
-- (IBAction)onActionDismiss:(id)sender {
-    if (self.presentingViewController){
-        [self dismissViewControllerAnimated:YES completion:nil];
-    }
 }
 
 - (IBAction)onActionDidTouchPhoto:(id)sender {
@@ -135,6 +128,7 @@
     if (self.navigationController && self.navigationController.navigationBar){
         frame.origin.y += self.navigationController.navigationBar.frame.size.height + self.navigationController.navigationBar.frame.origin.y; 
     }
+    frame.size.height = self.photoHeightConstraint.constant;
     frame = [self.imvMainPhoto.superview convertRect:frame toView:nil];
     return frame;
 }
