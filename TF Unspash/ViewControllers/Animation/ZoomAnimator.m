@@ -25,14 +25,42 @@
 
 - (void)animateZoomOutTransitionUsing:(id <UIViewControllerContextTransitioning>)context {
     NSLog(@"Zoom out transition.");
+    UIView * container = context.containerView;
+    UIView * fromView = [context viewForKey:UITransitionContextFromViewKey];
+    UIView * toView = [context viewForKey:UITransitionContextToViewKey];
+
+    UIImageView * refFromImageView = [self.fromDelegate referenceImageView:self];
+    UIImageView * refToImageView = [self.toDelegate referenceImageView:self];
+    CGRect fromImvFrame = [self.fromDelegate referenceImageViewFrameInTransitionView:self];
+    CGRect toImvFrame = [self.toDelegate referenceImageViewFrameInTransitionView:self];
+    //snap shot the source image view need to animate
+    self.transitionView = [refFromImageView snapshotViewAfterScreenUpdates:NO];
+
+    //pre animation
+    [container insertSubview:toView belowSubview:fromView];
+    [refFromImageView setHidden:YES];
+    [refToImageView setHidden:YES];
+
+    self.transitionView.frame = fromImvFrame;
+    [container addSubview:self.transitionView];
+    // Begin animation
+    [UIView animateWithDuration:[self transitionDuration:context]
+            delay:0 usingSpringWithDamping:0.8 initialSpringVelocity:0
+            options:UIViewAnimationOptionTransitionCrossDissolve animations:^{
+        self.transitionView.frame = toImvFrame;
+        fromView.alpha = 0;
+    } completion:^(BOOL finished) {
+        [self.transitionView removeFromSuperview];
+        [refFromImageView setHidden:NO];
+        [refToImageView setHidden:NO];
+        [context completeTransition: ![context transitionWasCancelled]];
+    }];
 }
 
 - (void)animateZoomInTransitionUsing:(id <UIViewControllerContextTransitioning>)context {
     NSLog(@"Zoom in transition.");
     UIView * container = context.containerView;
-    UIView * fromView = [context viewForKey:UITransitionContextFromViewKey];
     UIView * toView = [context viewForKey:UITransitionContextToViewKey];
-    UIViewController * controller = [context viewControllerForKey:UITransitionContextToViewControllerKey];
 
     UIImageView * refFromImageView = [self.fromDelegate referenceImageView:self];
     UIImageView * refToImageView = [self.toDelegate referenceImageView:self];
