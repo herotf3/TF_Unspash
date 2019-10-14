@@ -10,7 +10,6 @@
 #import "UIImageView+WebCache.h"
 #import "USPhotoVM.h"
 #import "FullViewPhotoViewController.h"
-#import "CustomAnimatedTransitioning.h"
 #import "ZoomTransitionController.h"
 
 @interface PhotoDetailViewController () <UIViewControllerTransitioningDelegate, UIGestureRecognizerDelegate>
@@ -28,7 +27,6 @@
 
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *photoHeightConstraint;
 
-@property(nonatomic, strong) CustomAnimatedTransitioning * transition;
 @property (nonatomic, strong) UIPanGestureRecognizer * panGestureRecognizer;
 @end
 
@@ -46,8 +44,6 @@
     [super viewDidLoad];
 
     [self bindData];
-
-    _transition = [CustomAnimatedTransitioning new];
 
     self.panGestureRecognizer = [UIPanGestureRecognizer new];
     self.panGestureRecognizer.delegate = self;
@@ -111,21 +107,6 @@
 
     fullPhotoVC.modalPresentationStyle = UIModalPresentationFullScreen;
     [self presentViewController:fullPhotoVC animated:YES completion:nil];
-}
-
-#pragma mark - Transitioning delegate
-
-- (nullable id <UIViewControllerAnimatedTransitioning>)animationControllerForPresentedController:(UIViewController *)presented presentingController:(UIViewController *)presenting sourceController:(UIViewController *)source {
-
-    self.transition.originFrame = [self.imvMainPhoto.superview convertRect:self.imvMainPhoto.frame toView:nil];    // get the frame in screen's coordinate
-    self.transition.presenting = YES;
-
-    return self.transition;
-}
-
-- (nullable id <UIViewControllerAnimatedTransitioning>)animationControllerForDismissedController:(UIViewController *)dismissed {
-    self.transition.presenting = NO;
-    return self.transition;
 }
 
 #pragma mark - ZoomAnimator delegate

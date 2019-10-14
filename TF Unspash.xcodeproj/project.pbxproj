@@ -10,7 +10,6 @@
 		1B3EE091B7B4D43877EA706B /* ZoomTransitionController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B3EE25C48FDE1EC49CFB086 /* ZoomTransitionController.m */; };
 		1B3EE0D4255702B4580134D2 /* ListPhotosViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B3EE105F9693A3547BF3F18 /* ListPhotosViewController.m */; };
 		1B3EE2BD5A70631D56161779 /* ZoomDismissalInteractionController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B3EEA2868036A1F517B5351 /* ZoomDismissalInteractionController.m */; };
-		1B3EE2BE9682577E172713D4 /* CustomAnimatedTransitioning.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B3EED0F7B5483D331A2FFC1 /* CustomAnimatedTransitioning.m */; };
 		1B3EE2F98873A3C59CC93DCE /* ListPhotosViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B3EEF47540C80E532914A3A /* ListPhotosViewModel.m */; };
 		1B3EE33C01050DE3914EAA6E /* BasePhotoVM.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B3EE0B94E7167DCFBFC32C6 /* BasePhotoVM.m */; };
 		1B3EE3559E7CE8EF42228753 /* UIColor+HexString.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B3EE07120A695D2F74C31E6 /* UIColor+HexString.m */; };
@@ -51,7 +50,6 @@
 		1B3EE166A9C6B6F85A80F135 /* CircleImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CircleImageView.m; sourceTree = "<group>"; };
 		1B3EE2589DDAC4E11891576A /* UIColor+HexString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+HexString.h"; sourceTree = "<group>"; };
 		1B3EE25C48FDE1EC49CFB086 /* ZoomTransitionController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZoomTransitionController.m; sourceTree = "<group>"; };
-		1B3EE29F59AC9DBBC35091F9 /* CustomAnimatedTransitioning.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomAnimatedTransitioning.h; sourceTree = "<group>"; };
 		1B3EE393C72ACF5A4D1CF3FF /* UnsplashAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UnsplashAPI.h; sourceTree = "<group>"; };
 		1B3EE3B723C922D15C039A36 /* NetworkingManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkingManager.h; sourceTree = "<group>"; };
 		1B3EE42EEC576B0B19121BA0 /* UnsplashAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UnsplashAPI.m; sourceTree = "<group>"; };
@@ -66,7 +64,6 @@
 		1B3EEBE71FF42C2F4B77A792 /* BasePhotoVM.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BasePhotoVM.h; sourceTree = "<group>"; };
 		1B3EEC2E5DF3F125247C3130 /* ZoomTransitionController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZoomTransitionController.h; sourceTree = "<group>"; };
 		1B3EEC91E1C54F3806702B10 /* ListPhotosViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListPhotosViewController.h; sourceTree = "<group>"; };
-		1B3EED0F7B5483D331A2FFC1 /* CustomAnimatedTransitioning.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomAnimatedTransitioning.m; sourceTree = "<group>"; };
 		1B3EED1E508BCFA2599B78E8 /* ZoomDismissalInteractionController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZoomDismissalInteractionController.h; sourceTree = "<group>"; };
 		1B3EED4DD3768A04799F28E0 /* ZoomAnimator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZoomAnimator.h; sourceTree = "<group>"; };
 		1B3EED8C6AAE1D92D78F36B9 /* UIViewController+ProcessView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+ProcessView.m"; sourceTree = "<group>"; };
@@ -158,8 +155,6 @@
 		1B3EEBB6CDC9FFBD7A135099 /* Animation */ = {
 			isa = PBXGroup;
 			children = (
-				1B3EED0F7B5483D331A2FFC1 /* CustomAnimatedTransitioning.m */,
-				1B3EE29F59AC9DBBC35091F9 /* CustomAnimatedTransitioning.h */,
 				1B3EE777C897125009F84350 /* ZoomAnimator.m */,
 				1B3EED4DD3768A04799F28E0 /* ZoomAnimator.h */,
 				1B3EE25C48FDE1EC49CFB086 /* ZoomTransitionController.m */,
@@ -418,7 +413,6 @@
 				1B3EEED506C0784AAAEE0C70 /* CircleImageView.m in Sources */,
 				1B3EE33C01050DE3914EAA6E /* BasePhotoVM.m in Sources */,
 				1B3EEF085A51EED79AC8EED4 /* LocalPhotoVM.m in Sources */,
-				1B3EE2BE9682577E172713D4 /* CustomAnimatedTransitioning.m in Sources */,
 				1B3EE3559E7CE8EF42228753 /* UIColor+HexString.m in Sources */,
 				1B3EEE676DA078E8050E2235 /* ZoomAnimator.m in Sources */,
 				1B3EE091B7B4D43877EA706B /* ZoomTransitionController.m in Sources */,
