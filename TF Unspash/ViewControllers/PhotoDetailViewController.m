@@ -101,7 +101,14 @@
 - (IBAction)onActionDidTouchPhoto:(id)sender {
     FullViewPhotoViewController *fullPhotoVC = [[FullViewPhotoViewController alloc] initWithFrame: self.view.frame viewModel:self.photoVM];
     fullPhotoVC.photoVM = self.photoVM;
-    fullPhotoVC.transitioningDelegate = self;
+//    fullPhotoVC.transitioningDelegate = self;
+    
+    // Using new transition controller for presenting animation.
+    fullPhotoVC.transitionController = [[ZoomTransitionController alloc] init];
+    fullPhotoVC.transitioningDelegate = fullPhotoVC.transitionController;
+    fullPhotoVC.transitionController.fromDelegate = self;
+    fullPhotoVC.transitionController.toDelegate = fullPhotoVC;
+
     fullPhotoVC.modalPresentationStyle = UIModalPresentationFullScreen;
     [self presentViewController:fullPhotoVC animated:YES completion:nil];
 }

@@ -94,5 +94,14 @@
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
+- (CGRect)referenceImageViewFrameInTransitionView:(ZoomAnimator *_Nullable)animator {
+
+    return [self.imvPhoto.superview convertRect:self.imvPhoto.frame toView:nil];
+}
+
+- (UIImageView *_Nullable)referenceImageView:(ZoomAnimator *_Nullable)animator {
+    return self.imvPhoto;
+}
+
 
 @end

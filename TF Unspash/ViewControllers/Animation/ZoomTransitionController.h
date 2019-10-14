@@ -9,7 +9,7 @@
 @class ZoomDismissalInteractionController;
 
 
-@interface ZoomTransitionController : NSObject <UINavigationControllerDelegate>
+@interface ZoomTransitionController : NSObject <UINavigationControllerDelegate, UIViewControllerTransitioningDelegate>
 
 @property (strong, nonatomic) ZoomAnimator * animator;
 @property (strong, nonatomic) ZoomDismissalInteractionController * interactionController;

@@ -7,7 +7,7 @@
 #import "ZoomAnimator.h"
 #import "ZoomDismissalInteractionController.h"
 
-@interface ZoomTransitionController() <UIViewControllerTransitioningDelegate, UINavigationControllerDelegate>
+@interface ZoomTransitionController()
 
 @end
 
