@@ -46,6 +46,7 @@
     transitionView.center = newCenter;
 
     [toRefImageView setHidden:YES];
+    [fromRefImageView setHidden:YES];
     [_transitionContext updateInteractiveTransition:1-scale];
 
     toVC.tabBarController.tabBar.alpha = 1 - bgAlpha;

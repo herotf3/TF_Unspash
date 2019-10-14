@@ -28,6 +28,7 @@
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *photoHeightConstraint;
 
 @property (nonatomic, strong) UIPanGestureRecognizer * panGestureRecognizer;
+@property(nonatomic, assign) BOOL isVisible;
 @end
 
 @implementation PhotoDetailViewController
@@ -36,6 +37,7 @@
     self = [super init];
     if (self) {
         self.transitionController = [ZoomTransitionController new];
+        self.isVisible = NO;
     }
     return self;
 }
@@ -57,6 +59,17 @@
     CGFloat w = _imvMainPhoto.frame.size.width;
     CGFloat h = w * (_photoVM.photoSize.height / _photoVM.photoSize.width);
     self.photoHeightConstraint.constant = h;
+    [self.view layoutIfNeeded];
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    self.isVisible = YES;
+}
+
+- (void)viewDidDisappear:(BOOL)animated {
+    [super viewDidDisappear:animated];
+    self.isVisible = NO;
 }
 
 
@@ -113,11 +126,12 @@
 
 - (CGRect)referenceImageViewFrameInTransitionView:(ZoomAnimator *)animator {
     CGRect frame = self.imvMainPhoto.frame;
-    if (self.navigationController && self.navigationController.navigationBar){
+    if (self.navigationController && !self.isVisible && self.navigationController.navigationBar)
+    {
         frame.origin.y += self.navigationController.navigationBar.frame.size.height + self.navigationController.navigationBar.frame.origin.y; 
     }
     frame.size.height = self.photoHeightConstraint.constant;
-//    frame = [self.imvMainPhoto.superview convertRect:frame toView:nil];
+    frame = [self.imvMainPhoto.superview convertRect:frame toView:nil];
     return frame;
 }
 
