@@ -50,12 +50,21 @@
         self.transitionView.frame = toImvFrame;
         fromView.alpha = 0;
     } completion:^(BOOL finished) {
-        [self.transitionView removeFromSuperview];
+        [self fadingTransitionView];
         [refFromImageView setHidden:NO];
         [refToImageView setHidden:NO];
         [context completeTransition: ![context transitionWasCancelled]];
     }];
 }
+
+- (void)fadingTransitionView {
+    [UIView animateWithDuration:0.25 delay:0 options:UIViewAnimationOptionTransitionCrossDissolve animations:^{
+        self.transitionView.alpha = 0;
+    } completion:^(BOOL finished) {
+        [self.transitionView removeFromSuperview];
+    }];
+}
+
 
 - (void)animateZoomInTransitionUsing:(id <UIViewControllerContextTransitioning>)context {
     NSLog(@"Zoom in transition.");
@@ -85,7 +94,7 @@
                          toView.alpha = 1.0;
 
                      } completion:^(BOOL finished) {
-                [self.transitionView removeFromSuperview];
+                [self fadingTransitionView];
                 //show 2 image views again
                 [refToImageView setHidden:NO];
                 [refFromImageView setHidden:NO];
