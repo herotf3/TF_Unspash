@@ -85,6 +85,10 @@
     if (!_scrollView){
         _scrollView = [[UIScrollView alloc] init];
         [_scrollView setBounces:NO];
+        _scrollView.indicatorStyle = UIScrollViewIndicatorStyleWhite;
+//        CGFloat bottomInset = UIApplication.sharedApplication.keyWindow.safeAreaInsets.bottom;
+//        [_scrollView setScrollIndicatorInsets:UIEdgeInsetsMake(0, 0, bottomInset, 0)];
+
     }
     return _scrollView;
 }

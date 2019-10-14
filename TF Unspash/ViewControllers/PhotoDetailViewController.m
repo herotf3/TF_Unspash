@@ -117,7 +117,7 @@
         frame.origin.y += self.navigationController.navigationBar.frame.size.height + self.navigationController.navigationBar.frame.origin.y; 
     }
     frame.size.height = self.photoHeightConstraint.constant;
-    frame = [self.imvMainPhoto.superview convertRect:frame toView:nil];
+//    frame = [self.imvMainPhoto.superview convertRect:frame toView:nil];
     return frame;
 }
 
