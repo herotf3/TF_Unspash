@@ -6,6 +6,7 @@
 #import <UIKit/UIKit.h>
 #import "ZoomDismissalInteractionController.h"
 #import "ZoomAnimator.h"
+#import "SDInternalMacros.h"
 
 @implementation ZoomDismissalInteractionController {
 

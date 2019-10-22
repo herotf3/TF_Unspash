@@ -24,6 +24,8 @@
 		1B3EEF085A51EED79AC8EED4 /* LocalPhotoVM.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B3EE0AA5D8580CD1B072E4A /* LocalPhotoVM.m */; };
 		1B3EEFAE765BD58F321D414F /* UnsplashEndPoint.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B3EEA9E27C7ED41DD603507 /* UnsplashEndPoint.m */; };
 		B2075FCCA38D6251D6F2005F /* libPods-TF Unspash.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3BA2DDECE5CEACC3A0600FC3 /* libPods-TF Unspash.a */; };
+		DB0AF10323548A3D00E6FF0F /* IGLDropDownItem.m in Sources */ = {isa = PBXBuildFile; fileRef = DB0AF10023548A3D00E6FF0F /* IGLDropDownItem.m */; };
+		DB0AF10423548A3D00E6FF0F /* IGLDropDownMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = DB0AF10223548A3D00E6FF0F /* IGLDropDownMenu.m */; };
 		DB0FAB32234440D600332D12 /* WaterFallLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = DB0FAB31234440D600332D12 /* WaterFallLayout.m */; };
 		DB0FAB362344997C00332D12 /* PhotoDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DB0FAB342344997C00332D12 /* PhotoDetailViewController.m */; };
 		DB0FAB372344997C00332D12 /* PhotoDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DB0FAB352344997C00332D12 /* PhotoDetailViewController.xib */; };
@@ -75,6 +77,10 @@
 		1B3EEFCF38ECBED3F17D61B0 /* NetworkingManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetworkingManager.m; sourceTree = "<group>"; };
 		3BA2DDECE5CEACC3A0600FC3 /* libPods-TF Unspash.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-TF Unspash.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		85EE2CA72770B949C7FE0C2C /* Pods-TF Unspash.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TF Unspash.debug.xcconfig"; path = "Target Support Files/Pods-TF Unspash/Pods-TF Unspash.debug.xcconfig"; sourceTree = "<group>"; };
+		DB0AF0FF23548A3C00E6FF0F /* IGLDropDownMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IGLDropDownMenu.h; sourceTree = "<group>"; };
+		DB0AF10023548A3D00E6FF0F /* IGLDropDownItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IGLDropDownItem.m; sourceTree = "<group>"; };
+		DB0AF10123548A3D00E6FF0F /* IGLDropDownItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IGLDropDownItem.h; sourceTree = "<group>"; };
+		DB0AF10223548A3D00E6FF0F /* IGLDropDownMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IGLDropDownMenu.m; sourceTree = "<group>"; };
 		DB0FAB30234440D600332D12 /* WaterFallLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WaterFallLayout.h; sourceTree = "<group>"; };
 		DB0FAB31234440D600332D12 /* WaterFallLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WaterFallLayout.m; sourceTree = "<group>"; };
 		DB0FAB332344997C00332D12 /* PhotoDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PhotoDetailViewController.h; sourceTree = "<group>"; };
@@ -184,6 +190,25 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		DB0AF0FD23548A1500E6FF0F /* Libraries */ = {
+			isa = PBXGroup;
+			children = (
+				DB0AF0FE23548A2C00E6FF0F /* IGLDropDownMenu */,
+			);
+			path = Libraries;
+			sourceTree = "<group>";
+		};
+		DB0AF0FE23548A2C00E6FF0F /* IGLDropDownMenu */ = {
+			isa = PBXGroup;
+			children = (
+				DB0AF10123548A3D00E6FF0F /* IGLDropDownItem.h */,
+				DB0AF10023548A3D00E6FF0F /* IGLDropDownItem.m */,
+				DB0AF0FF23548A3C00E6FF0F /* IGLDropDownMenu.h */,
+				DB0AF10223548A3D00E6FF0F /* IGLDropDownMenu.m */,
+			);
+			path = IGLDropDownMenu;
+			sourceTree = "<group>";
+		};
 		DB12B71D2341AE69004CE43D = {
 			isa = PBXGroup;
 			children = (
@@ -205,6 +230,7 @@
 		DB12B7282341AE69004CE43D /* TF Unspash */ = {
 			isa = PBXGroup;
 			children = (
+				DB0AF0FD23548A1500E6FF0F /* Libraries */,
 				DB12B74423421296004CE43D /* AppDelegate */,
 				DB12B74323421283004CE43D /* ViewControllers */,
 				DB12B7422341AEB9004CE43D /* Networking */,
@@ -397,6 +423,7 @@
 				DB0FAB32234440D600332D12 /* WaterFallLayout.m in Sources */,
 				DB12B7312341AE69004CE43D /* TestingViewController.m in Sources */,
 				DB12B72B2341AE69004CE43D /* AppDelegate.m in Sources */,
+				DB0AF10423548A3D00E6FF0F /* IGLDropDownMenu.m in Sources */,
 				DB8CE077234B4552006C0D20 /* FullViewPhotoViewController.m in Sources */,
 				DB12B73C2341AE6B004CE43D /* main.m in Sources */,
 				DB12B749234214E6004CE43D /* PhotoCollectionViewCell.m in Sources */,
@@ -406,6 +433,7 @@
 				1B3EE6D6380F5541FF28B75B /* UnsplashAPI.m in Sources */,
 				1B3EE62B34A0811D6FFF3DD7 /* USPhoto.m in Sources */,
 				1B3EE0D4255702B4580134D2 /* ListPhotosViewController.m in Sources */,
+				DB0AF10323548A3D00E6FF0F /* IGLDropDownItem.m in Sources */,
 				1B3EECC620318664E8171DBB /* USPhotoVM.m in Sources */,
 				1B3EECED01450395AF823680 /* UIViewController+ProcessView.m in Sources */,
 				DB0FAB362344997C00332D12 /* PhotoDetailViewController.m in Sources */,
